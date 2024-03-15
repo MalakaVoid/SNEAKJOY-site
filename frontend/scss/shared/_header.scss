@@ -1,0 +1,113 @@
+.header{
+    width: 100%;
+    height: var(--header-height);
+    display: block;
+    position: fixed;
+    z-index: 100;
+    padding: 0 var(--side-paddings);
+    box-sizing: border-box;
+    color: var(--main-black);
+    background-color: var(--main-white);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+
+    &_wrapper{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        position: relative;
+    }
+
+    &_nav_bar{
+        display: flex;
+        gap: 30px;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        font-size: 1.25rem;
+        line-height: 1.875rem;
+
+        li{
+            text-transform: uppercase;
+            position: relative;
+            cursor: pointer;
+
+            &:hover::after{
+                transform: scaleX(1);
+            }
+        }
+
+        li::after{
+            content: "";
+            width: 100%;
+            height: 2px;
+            background-color: var(--main-black);
+            display: block;
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            transform: scaleX(0);
+            transition: 0.2s ease-in-out;
+        }
+    }
+
+    &_logo{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        svg{
+            width: 149px;
+            height: 47px;
+        }
+    }
+    &_left{
+        display: flex;
+        gap: 30px;
+        align-items: center;
+
+        div{
+            width: 30px;
+            height: 30px;
+            
+            svg{
+                width: inherit;
+                height: inherit;
+                path{
+                    stroke: var(--main-black);
+                }
+            }
+        }
+    }
+}
+
+.white.header{
+    color: var(--main-white);
+    background-color: rgba(#000000, 0);
+    box-shadow: none;
+
+    .header_logo{
+        .logo_color_stroke{
+            stroke: var(--main-white);
+        }
+        .logo_color_fill{
+            fill: var(--main-white);
+        }
+    }
+
+    .header_nav_bar{
+        li::after{
+            background-color: var(--main-white);
+        }
+    }
+    .header_left{
+        svg{
+            path{
+                stroke: var(--main-white);
+            }
+        }
+    }
+}

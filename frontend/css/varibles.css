@@ -1,0 +1,12 @@
+:root{
+    /* COLORS */
+    --main-black: #0B0B0B;
+    --main-white: #ffffff;
+    --sup-white: #EEEEEE;
+    --sup-black: #676767;
+
+    /* SIZES */
+    --header-height: 80px;
+
+    --side-paddings: 30px;
+}
