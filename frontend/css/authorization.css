@@ -1,0 +1,155 @@
+body {
+  font-family: Roboto;
+  font-weight: 400;
+  max-width: 1920px;
+  margin: 0 auto;
+  overflow-x: hidden;
+  color: var(--main-black);
+}
+
+.authorization {
+  width: 100%;
+  height: 100vh;
+  min-height: 800px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  padding-top: 100px;
+}
+.authorization_main {
+  width: 450px;
+  height: 650px;
+  position: relative;
+  background-color: var(--main-black);
+  z-index: 1;
+  overflow: hidden;
+  border-radius: 20px;
+}
+.authorization_image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7137254902);
+  border-radius: inherit;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.authorization_image img {
+  position: relative;
+  z-index: -1;
+  width: 100%;
+}
+.authorization_wrapper {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  padding: 40px 60px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.authorization_logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.authorization_logo svg {
+  width: 170px;
+}
+.authorization_nav_bar {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+.authorization_nav_bar h3 {
+  font-size: 24px;
+  color: var(--sup-black);
+  cursor: pointer;
+}
+.authorization_nav_bar h3:hover {
+  transition: 0.2s;
+  color: var(--main-white);
+}
+.authorization_nav_bar h3.active {
+  color: var(--main-white);
+}
+.authorization form {
+  display: none;
+  width: 100%;
+  margin-top: 20px;
+  flex-direction: column;
+  align-items: center;
+}
+.authorization form.active {
+  display: flex;
+}
+.authorization form .input_container {
+  margin-top: 10px;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  height: 55px;
+  position: relative;
+}
+.authorization form .input_container::after {
+  transition: 0.2s;
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: var(--main-white);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: scaleX(0);
+}
+.authorization form .input_container input {
+  position: absolute;
+  box-sizing: border-box;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  outline: none;
+  border: none;
+  background: none;
+  font-size: 1.25rem;
+  padding-bottom: 3px;
+  padding-left: 5px;
+  color: var(--main-white);
+  border-bottom: 1px solid var(--sup-black);
+}
+.authorization form .input_container input:focus ~ span,
+.authorization form .input_container input:valid ~ span {
+  transform: translate(-5px, -30px);
+  font-size: 1rem;
+}
+.authorization form .input_container:has(input:focus)::after, .authorization form .input_container:has(input:valid)::after {
+  transform: scaleX(1);
+}
+.authorization form .input_container span {
+  cursor: text;
+  transition: 0.2s;
+  position: absolute;
+  left: 5px;
+  bottom: 3px;
+  font-size: 1.25rem;
+  color: var(--sup-black);
+}
+.authorization form button {
+  display: inline-block;
+  background-color: var(--sup-black);
+  padding: 10px 20px;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-top: 30px;
+}
+.authorization form button:hover {
+  background-color: var(--main-white);
+  transition: 0.25s;
+}/*# sourceMappingURL=authorization.css.map */

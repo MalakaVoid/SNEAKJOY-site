@@ -11,7 +11,8 @@
         width: 100%;
         display: flex;
 
-        & > div{
+        & > div,
+        & > a{
             flex-basis: 25%;
             padding: 10px;
             box-sizing: border-box;
