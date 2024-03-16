@@ -39,12 +39,12 @@
                     </svg>   
                 </div>
                 <div class="authorization_nav_bar">
-                    <h3 class="active">ВХОД</h3>
-                    <h3>РЕГИСТРАЦИЯ</h3>
+                    <h3 tabindex="1" class="active" id="authorization_button">ВХОД</h3>
+                    <h3 tabindex="2" id="registration_button">РЕГИСТРАЦИЯ</h3>
                 </div>
 
 
-                <form>
+                <form id="authorization_form" class="active">
                     <label class="input_container">
                         <input type="text" required />
                         <span>E-MAIL</span>
@@ -57,7 +57,7 @@
                 </form>
 
 
-                <form class="active">
+                <form id="registration_form">
                     <label class="input_container">
                         <input type="text" required />
                         <span>ИМЯ</span>
@@ -80,5 +80,6 @@
             </div>
         </div>
     </section>
+    <script src="scripts/authorizationFormChanger.js"></script>
 </body>
 </html>
