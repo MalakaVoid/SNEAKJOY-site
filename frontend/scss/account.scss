@@ -1,6 +1,8 @@
 @import './shared/header';
 @import './shared/footer';
 @import './shared/popular';
+@import "./shared/customInput";
+@import "./shared/customButton";
 
 body{
     font-family: Roboto;
@@ -92,4 +94,44 @@ main{
             }
         }
     }
+
+    &_part{
+        width: 100%;
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        form{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            @include customInput;
+            @include customButton;
+
+            button{
+                margin-top: 50px;
+            }
+        }
+
+        &_image{
+            display: block;
+            width: 150px;
+            height: 150px;
+            box-sizing: border-box;
+            border-radius: 50%;
+            background-color: var(--sup-white);
+        }
+
+        &_form_wrapper{
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 80px;
+        }
+    }
+
+
 }

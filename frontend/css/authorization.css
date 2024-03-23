@@ -87,9 +87,6 @@ body {
   flex-direction: column;
   align-items: center;
 }
-.authorization form.active {
-  display: flex;
-}
 .authorization form .input_container {
   margin-top: 10px;
   display: block;
@@ -152,4 +149,7 @@ body {
 .authorization form button:hover {
   background-color: var(--main-white);
   transition: 0.25s;
+}
+.authorization form.active {
+  display: flex;
 }/*# sourceMappingURL=authorization.css.map */

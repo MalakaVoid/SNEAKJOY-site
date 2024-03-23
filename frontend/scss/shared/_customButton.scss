@@ -1,0 +1,15 @@
+@mixin customButton{
+    button{
+        display: inline-block;
+        background-color: var(--sup-black);
+        padding: 10px 20px;
+        font-weight: 700;
+        font-size: 1rem;
+        margin-top: 30px;
+
+        &:hover{
+            background-color: var(--main-white);
+            transition: 0.25s;
+        }
+    }
+}
