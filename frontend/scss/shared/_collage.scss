@@ -1,0 +1,16 @@
+@mixin collage{
+    display: grid;
+    grid-template-columns: repeat(3, 200px);
+    gap: 30px;
+    margin-top: 40px;
+
+    div{
+        width: 200px;
+        height: 200px;
+
+        img{
+            width: inherit;
+            height: inherit;
+        }
+    }
+}

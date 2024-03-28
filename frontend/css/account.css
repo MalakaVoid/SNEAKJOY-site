@@ -150,8 +150,7 @@
   display: grid;
   grid-template-columns: 30px 140px;
   row-gap: 20px;
-  -moz-column-gap: 20px;
-       column-gap: 20px;
+  column-gap: 20px;
 }
 .footer_contacts_wrapper p {
   width: 100%;
@@ -368,7 +367,7 @@ main {
   width: 100%;
   height: 100%;
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.7137254902);
+  background-color: rgba(0, 0, 0, 0.7803921569);
   border-radius: inherit;
   left: 0;
   top: 0;
@@ -414,10 +413,13 @@ main {
 .account_part {
   width: 100%;
   margin-top: 20px;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+.account_part.active {
+  display: flex;
 }
 .account_part form {
   width: 100%;
@@ -503,6 +505,66 @@ main {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  -moz-column-gap: 80px;
-       column-gap: 80px;
+  column-gap: 80px;
+}
+
+.orders_part {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  margin-top: 30px;
+  overflow-y: scroll;
+  scrollbar-color: var(--main-white) var(--main-black);
+  scrollbar-width: thin;
+  display: none;
+  flex-direction: column;
+  row-gap: 10px;
+}
+.orders_part.active {
+  display: flex;
+}
+.orders_part_card {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  box-sizing: border-box;
+  padding-top: 10px;
+  border-top: 1px solid var(--main-white);
+}
+.orders_part_card_num {
+  color: var(--sup-black);
+  font-size: 1rem;
+}
+.orders_part_card_items {
+  font-size: 1rem;
+}
+.orders_part_card_items ul {
+  margin: 0;
+  padding: 0;
+  color: var(--main-white);
+  list-style-type: disc;
+  line-height: 1.35rem;
+}
+.orders_part_card_items ul span,
+.orders_part_card_items ul li::marker {
+  color: var(--sup-black);
+}
+.orders_part_card_dates {
+  width: 100%;
+  font-size: 1rem;
+  line-height: 1.35rem;
+  color: var(--main-white);
+}
+.orders_part_card_dates > div {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.orders_part_card_dates > div span:first-child {
+  color: var(--sup-black);
+}
+.orders_part_card_price {
+  width: 100%;
+  text-align: center;
+  color: var(--main-white);
 }/*# sourceMappingURL=account.css.map */

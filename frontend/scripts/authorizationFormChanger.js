@@ -1,3 +1,4 @@
+
 let authorizationForm = document.getElementById('authorization_form');
 let registrationForm = document.getElementById('registration_form');
 

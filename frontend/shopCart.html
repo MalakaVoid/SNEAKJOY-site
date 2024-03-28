@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/varibles.css">
-    <link rel="stylesheet" href="./css/account.css">
+    <link rel="stylesheet" href="./css/shopCart.css">
     <title>Catalogue</title>
 </head>
 <body>
@@ -59,243 +59,103 @@
     </header>
 
     <main>
-        <section class="account">
-            <div class="account_main">
-                <div class="account_image">
-                    <img src="./images/about_us_sneakers/red_sneakers_jordan.png" />
+        <section class="shop_cart">
+            <div class="shop_cart_title">
+                <h1>#КОРЗИНА</h1>
+            </div>
+            <div class="shop_cart_wrapper">
+                <div class="shop_cart_top">
+                    <div>Товары</div>
+                    <div class="shop_cart_top_sum_amount">3 товара</div>
+                    <div class="shop_cart_top_amount">Количество</div>
+                    <div class="shop_cart_top_price">Цена</div>
                 </div>
-                <div class="account_wrapper">
-                    <div class="account_nav_bar">
-                        <h3 tabindex="1" class="active" id="account_button">АККАУНТ</h3>
-                        <h3 tabindex="2" id="orders_button">ЗАКАЗЫ</h3>
+
+                <div class="shop_cart_products_wrapper">
+
+                    <div class="shop_cart_card">
+                        <div class="shop_cart_card_image">
+                            <img src="./images/sneakers_product/red_black/pngwing.com (6).png" />
+                        </div>
+                        <div class="shop_cart_card_info">
+                            <div class="shop_cart_card_info_title">
+                                NIKE JORDAN 1
+                            </div>
+                            <div class="shop_cart_card_info_size">
+                                Размер: <span>42</span>
+                            </div>
+                        </div>
+                        <div class="shop_cart_card_amount">
+                            <div class="shop_cart_card_amount_picker">
+                                <div class="shop_cart_card_amount_picker_less">+</div>
+                                <div class="shop_cart_card_amount_picker_num">12</div>
+                                <div class="shop_cart_card_amount_picker_more">—</div>
+                            </div>
+                        </div>
+                        <div class="shop_cart_card_price">
+                            15 999 ₽
+                        </div>
                     </div>
 
-                    <div id="account" class="account_part active">
-                        <div class="account_part_image">
 
+
+                    <div class="shop_cart_card">
+                        <div class="shop_cart_card_image">
+                            <img src="./images/sneakers_product/red_black/pngwing.com (6).png" />
                         </div>
-                        <form id="account_part_form">
-                            <div class="account_part_form_wrapper">
-                                <label class="input_container">
-                                    <input type="text" required />
-                                    <span>ИМЯ</span>
-                                </label>
-                                <label class="input_container">
-                                    <input type="text" required />
-                                    <span>E-MAIL</span>
-                                </label>
-                                <label class="input_container">
-                                    <input type="password" required />
-                                    <span>ПАРОЛЬ</span>
-                                </label>
-                                <label class="input_container">
-                                    <input type="password" required />
-                                    <span>ПОВТОРИТЕ ПАРОЛЬ</span>
-                                </label>
+                        <div class="shop_cart_card_info">
+                            <div class="shop_cart_card_info_title">
+                                NIKE JORDAN 1
                             </div>
-                            <button>СОХРАНИТЬ</button>
-                        </form>
+                            <div class="shop_cart_card_info_size">
+                                Размер: <span>42</span>
+                            </div>
+                        </div>
+                        <div class="shop_cart_card_amount">
+                            <div class="shop_cart_card_amount_picker">
+                                <div class="shop_cart_card_amount_picker_less">+</div>
+                                <div class="shop_cart_card_amount_picker_num">12</div>
+                                <div class="shop_cart_card_amount_picker_more">—</div>
+                            </div>
+                        </div>
+                        <div class="shop_cart_card_price">
+                            15 999 ₽
+                        </div>
                     </div>
-
-                    <div id="orders" class="orders_part">
-                        <div class="orders_part_card">
-                            <div class="orders_part_card_num">
-                                #1231231232
+                    <div class="shop_cart_card">
+                        <div class="shop_cart_card_image">
+                            <img src="./images/sneakers_product/red_black/pngwing.com (6).png" />
+                        </div>
+                        <div class="shop_cart_card_info">
+                            <div class="shop_cart_card_info_title">
+                                NIKE JORDAN 1
                             </div>
-                            <div class="orders_part_card_items">
-                                <ul>
-                                    <li>NIKE JORDAN 1 <span>1</span></li>
-                                    <li>ADDIDAS SPORT EDITION <span>1</span></li>
-                                    <li>NIKE VAPORMAX <span>1</span></li>
-                                </ul>
-                            </div>
-                            <div class="orders_part_card_dates">
-                                <div class="orders_part_card_dates_creation">
-                                    <span>Создан:</span>
-                                    <span>16.05.2023</span>
-                                </div>
-                                <div class="orders_part_card_dates_delivery">
-                                    <span>Доставка:</span>
-                                    <span>17.05.2023</span>
-                                </div>
-                            </div>
-                            <div class="orders_part_card_price">
-                                40 986 ₽
+                            <div class="shop_cart_card_info_size">
+                                Размер: <span>42</span>
                             </div>
                         </div>
-
-
-
-
-
-
-
-
-                        <div class="orders_part_card">
-                            <div class="orders_part_card_num">
-                                #1231231232
-                            </div>
-                            <div class="orders_part_card_items">
-                                <ul>
-                                    <li>NIKE JORDAN 1 <span>1</span></li>
-                                    <li>ADDIDAS SPORT EDITION <span>1</span></li>
-                                    <li>NIKE VAPORMAX <span>1</span></li>
-                                </ul>
-                            </div>
-                            <div class="orders_part_card_dates">
-                                <div class="orders_part_card_dates_creation">
-                                    <span>Создан:</span>
-                                    <span>16.05.2023</span>
-                                </div>
-                                <div class="orders_part_card_dates_delivery">
-                                    <span>Доставка:</span>
-                                    <span>17.05.2023</span>
-                                </div>
-                            </div>
-                            <div class="orders_part_card_price">
-                                40 986 ₽
+                        <div class="shop_cart_card_amount">
+                            <div class="shop_cart_card_amount_picker">
+                                <div class="shop_cart_card_amount_picker_less">+</div>
+                                <div class="shop_cart_card_amount_picker_num">12</div>
+                                <div class="shop_cart_card_amount_picker_more">—</div>
                             </div>
                         </div>
-                        <div class="orders_part_card">
-                            <div class="orders_part_card_num">
-                                #1231231232
-                            </div>
-                            <div class="orders_part_card_items">
-                                <ul>
-                                    <li>NIKE JORDAN 1 <span>1</span></li>
-                                    <li>ADDIDAS SPORT EDITION <span>1</span></li>
-                                    <li>NIKE VAPORMAX <span>1</span></li>
-                                </ul>
-                            </div>
-                            <div class="orders_part_card_dates">
-                                <div class="orders_part_card_dates_creation">
-                                    <span>Создан:</span>
-                                    <span>16.05.2023</span>
-                                </div>
-                                <div class="orders_part_card_dates_delivery">
-                                    <span>Доставка:</span>
-                                    <span>17.05.2023</span>
-                                </div>
-                            </div>
-                            <div class="orders_part_card_price">
-                                40 986 ₽
-                            </div>
+                        <div class="shop_cart_card_price">
+                            15 999 ₽
                         </div>
-                        <div class="orders_part_card">
-                            <div class="orders_part_card_num">
-                                #1231231232
-                            </div>
-                            <div class="orders_part_card_items">
-                                <ul>
-                                    <li>NIKE JORDAN 1 <span>1</span></li>
-                                    <li>ADDIDAS SPORT EDITION <span>1</span></li>
-                                    <li>NIKE VAPORMAX <span>1</span></li>
-                                </ul>
-                            </div>
-                            <div class="orders_part_card_dates">
-                                <div class="orders_part_card_dates_creation">
-                                    <span>Создан:</span>
-                                    <span>16.05.2023</span>
-                                </div>
-                                <div class="orders_part_card_dates_delivery">
-                                    <span>Доставка:</span>
-                                    <span>17.05.2023</span>
-                                </div>
-                            </div>
-                            <div class="orders_part_card_price">
-                                40 986 ₽
-                            </div>
-                        </div>
-                        <div class="orders_part_card">
-                            <div class="orders_part_card_num">
-                                #1231231232
-                            </div>
-                            <div class="orders_part_card_items">
-                                <ul>
-                                    <li>NIKE JORDAN 1 <span>1</span></li>
-                                    <li>ADDIDAS SPORT EDITION <span>1</span></li>
-                                    <li>NIKE VAPORMAX <span>1</span></li>
-                                </ul>
-                            </div>
-                            <div class="orders_part_card_dates">
-                                <div class="orders_part_card_dates_creation">
-                                    <span>Создан:</span>
-                                    <span>16.05.2023</span>
-                                </div>
-                                <div class="orders_part_card_dates_delivery">
-                                    <span>Доставка:</span>
-                                    <span>17.05.2023</span>
-                                </div>
-                            </div>
-                            <div class="orders_part_card_price">
-                                40 986 ₽
-                            </div>
-                        </div>
-                        <div class="orders_part_card">
-                            <div class="orders_part_card_num">
-                                #1231231232
-                            </div>
-                            <div class="orders_part_card_items">
-                                <ul>
-                                    <li>NIKE JORDAN 1 <span>1</span></li>
-                                    <li>ADDIDAS SPORT EDITION <span>1</span></li>
-                                    <li>NIKE VAPORMAX <span>1</span></li>
-                                </ul>
-                            </div>
-                            <div class="orders_part_card_dates">
-                                <div class="orders_part_card_dates_creation">
-                                    <span>Создан:</span>
-                                    <span>16.05.2023</span>
-                                </div>
-                                <div class="orders_part_card_dates_delivery">
-                                    <span>Доставка:</span>
-                                    <span>17.05.2023</span>
-                                </div>
-                            </div>
-                            <div class="orders_part_card_price">
-                                40 986 ₽
-                            </div>
-                        </div>
-                        <div class="orders_part_card">
-                            <div class="orders_part_card_num">
-                                #1231231232
-                            </div>
-                            <div class="orders_part_card_items">
-                                <ul>
-                                    <li>NIKE JORDAN 1 <span>1</span></li>
-                                    <li>ADDIDAS SPORT EDITION <span>1</span></li>
-                                    <li>NIKE VAPORMAX <span>1</span></li>
-                                </ul>
-                            </div>
-                            <div class="orders_part_card_dates">
-                                <div class="orders_part_card_dates_creation">
-                                    <span>Создан:</span>
-                                    <span>16.05.2023</span>
-                                </div>
-                                <div class="orders_part_card_dates_delivery">
-                                    <span>Доставка:</span>
-                                    <span>17.05.2023</span>
-                                </div>
-                            </div>
-                            <div class="orders_part_card_price">
-                                40 986 ₽
-                            </div>
-                        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
                     </div>
-
+                </div>
+                <div class="shop_cart_conclusion">
+                    <div class="shop_cart_conclusion_summary">
+                        <div class="shop_cart_conclusion_summary_title">
+                            ИТОГО:
+                        </div>
+                        <div class="shop_cart_conclusion_summary_price">
+                            15 999 ₽
+                        </div>
+                    </div>
+                    <button>ОПЛАТИТЬ</button>
                 </div>
             </div>
         </section>
@@ -363,7 +223,5 @@
             <p class="footer_bottom_laws">All Rights Reserved © SNEAKJOY, 2024</p>
         </div>
     </footer>
-
-    <script src="scripts/accountOrdersChanger.js"></script>
 </body>
 </html>

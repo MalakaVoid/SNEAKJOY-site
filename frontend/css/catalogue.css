@@ -150,8 +150,7 @@
   display: grid;
   grid-template-columns: 30px 140px;
   row-gap: 20px;
-  -moz-column-gap: 20px;
-       column-gap: 20px;
+  column-gap: 20px;
 }
 .footer_contacts_wrapper p {
   width: 100%;
@@ -266,8 +265,7 @@ body {
 .catalogue_products {
   display: grid;
   grid-template-columns: repeat(4, 287.5px);
-  -moz-column-gap: 10px;
-       column-gap: 10px;
+  column-gap: 10px;
   row-gap: 10px;
   box-sizing: border-box;
   padding: 0 10px;

@@ -150,8 +150,7 @@
   display: grid;
   grid-template-columns: 30px 140px;
   row-gap: 20px;
-  -moz-column-gap: 20px;
-       column-gap: 20px;
+  column-gap: 20px;
 }
 .footer_contacts_wrapper p {
   width: 100%;
@@ -405,6 +404,7 @@ body {
   font-size: 1rem;
 }
 .product_info_bottom button:hover {
+  transition: 0.25s;
   background-color: var(--main-black);
 }
 .product_info_sizes {

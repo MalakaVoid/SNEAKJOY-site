@@ -1,0 +1,21 @@
+@import "./shared/header";
+@import "./shared/footer";
+
+body{
+    font-family: Roboto;
+    font-weight: 400;
+    max-width: 1920px;
+    margin: 0 auto;
+    overflow-x: hidden;
+    min-height: 960px;
+    color: var(--main-black)
+}
+
+.contacts{
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    max-height: 1200px;
+    box-sizing: border-box;
+    padding-top: calc(var(--header-height) + 30px);
+}
