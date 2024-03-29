@@ -1,6 +1,12 @@
 @import "./shared/header";
 @import "./shared/footer";
 
+@mixin centeredFlex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 body{
     font-family: Roboto;
     font-weight: 400;
@@ -18,4 +24,66 @@ body{
     max-height: 1200px;
     box-sizing: border-box;
     padding-top: calc(var(--header-height) + 30px);
+
+    h1{
+        font-size: 2.5rem;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    &_wrapper{
+        display: flex;
+        max-width: 700px;
+        width: 100%;
+        min-height: 250px;
+        margin: 0 auto;
+        margin-top: 60px;
+        border: 1px solid var(--main-black);
+
+    }
+
+    &_logo_side{
+        @include centeredFlex;
+        flex-basis: 50%;
+        background-color: var(--main-black);
+        box-sizing: border-box;
+        padding: 20px;
+
+        svg{
+            width: 100%
+        }
+
+    }
+
+    &_credentials{
+        @include centeredFlex;
+        flex-basis: 50%;
+        flex-direction: column;
+
+        &_phone_number,
+        &_email{
+            @include centeredFlex;
+            font-size: 1.5rem;
+            gap: 20px;
+    
+            span{
+                display: block;
+            }
+        }
+
+        &_email{
+            margin-top: 40px;
+        }
+    }
+
+    &_description{
+        @include centeredFlex;
+        flex-direction: column;
+        font-size: 1.25rem;
+        margin-top: 40px;
+        color: var(--sup-black);
+        text-align: center;
+        gap: 30px;
+    }
+
 }
