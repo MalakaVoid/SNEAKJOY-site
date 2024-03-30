@@ -1,4 +1,4 @@
-## For now on only Desctop Version.
+## Only Desctop Version fo now
 
 **Main page**
 ![main_page](https://github.com/MalakaVoid/SNEAKJOY-site/assets/90262550/e3053a5a-35e8-4094-bb7c-1b86cbff6837)
