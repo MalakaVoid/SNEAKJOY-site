@@ -7,9 +7,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/varibles.css">
-    <link rel="stylesheet" href="./css/catalogue.css">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/varibles.css">
+    <link rel="stylesheet" href="/css/catalogue.css">
+    <%- include('../common/_favicon.ejs') %>
     <title><%= settings.title %></title>
 </head>
 <body>
@@ -27,133 +28,34 @@
                     <option>По наличию</option>
                 </select>
             </div>
-
             <div class="catalogue_products">
-
-                <div class="catalogue_products_card">
-                    <a href="/productcard">
-                        <div class="catalogue_products_card_image">
-                            <img src="./images/sneakers_product/orange_white/pngwing.com (11).png" />
-                            <img src="./images/sneakers_product/orange_white/orange_sneakers_jordan.png.png" />
+                <% products.forEach(product => { %>
+                    <div class="catalogue_products_card">
+                        <a href="/product/<%= product.id %>">
+                            <div class="catalogue_products_card_image">
+                                <img src="<%= product.mainImage %>" />
+                                <img src="<%= product.supImage %>" />
+                            </div>
+                            <div class="catalogue_products_card_title"><%= product.title %></div>
+                            <div class="catalogue_products_card_desc"><%= product.descriptionSmall %></div>
+                            <div class="catalogue_products_card_price"><%= product.price.toLocaleString('ru-RU', { style: 'currency', currency: 'RUB', maximumFractionDigits: 0 }) %></div>
+                        </a>
+                        <div class="catalogue_products_card_sizes">
+                            <% for( let i = 0; i < product.sizes.length; i++ ) { %>
+                                <span onClick="addProductToCart(<%= product.id %>, <%= product.sizes[i] %> %>)">
+                                    <%= product.sizes[i] %>
+                                </span>
+                                <% if (i !== product.sizes.length - 1) { %>
+                                    &nbsp;|&nbsp;
+                                <% } %>
+                            <% } %>
                         </div>
-                        <div class="catalogue_products_card_title">NIKE JORDAN 1</div>
-                        <div class="catalogue_products_card_desc">Оригинальные Nike Jordan 1 в красно белом окрасе</div>
-                        <div class="catalogue_products_card_price">15 999 ₽</div>
-                    </a>
-                    <div class="catalogue_products_card_sizes">
-                        <span>37</span> | <span>38</span> | <span>39</span> | <span>40</span> | <span>41</span> | <span>42</span> | <span>43</span> | <span>44</span>
                     </div>
-                </div>
-
-                <div class="catalogue_products_card">
-                    <a href="index.html">
-                        <div class="catalogue_products_card_image">
-                            <img src="./images/sneakers_product/red_black/pngwing.com (6).png" />
-                            <img src="./images/sneakers_product/red_black/pngwing.com (3).png" />
-                        </div>
-                        <div class="catalogue_products_card_title">NIKE JORDAN 1</div>
-                        <div class="catalogue_products_card_desc">Оригинальные Nike Jordan 1 в красно белом окрасе</div>
-                        <div class="catalogue_products_card_price">15 999 ₽</div>
-                    </a>
-                    <div class="catalogue_products_card_sizes">
-                        <span>37</span> | <span>38</span> | <span>39</span> | <span>40</span> | <span>41</span> | <span>42</span> | <span>43</span> | <span>44</span>
-                    </div>
-                </div>
-
-                <div class="catalogue_products_card">
-                    <a href="index.html">
-                        <div class="catalogue_products_card_image">
-                            <img src="./images/sneakers_product/blue_black/pngwing.com (4).png" />
-                            <img src="./images/sneakers_product/blue_black/pngwing.com (8).png" />
-                        </div>
-                        <div class="catalogue_products_card_title">NIKE JORDAN 1</div>
-                        <div class="catalogue_products_card_desc">Оригинальные Nike Jordan 1 в красно белом окрасе</div>
-                        <div class="catalogue_products_card_price">15 999 ₽</div>
-                    </a>
-                    <div class="catalogue_products_card_sizes">
-                        <span>37</span> | <span>38</span> | <span>39</span> | <span>40</span> | <span>41</span> | <span>42</span> | <span>43</span> | <span>44</span>
-                    </div>
-                </div>
-
-                <div class="catalogue_products_card">
-                    <a href="index.html">
-                        <div class="catalogue_products_card_image">
-                            <img src="./images/sneakers_product/red_black_white/red_white_jordan_anfas.png" />
-                            <img src="./images/sneakers_product/red_black_white/red_sneakers_jordan.png" />
-                        </div>
-                        <div class="catalogue_products_card_title">NIKE JORDAN 1</div>
-                        <div class="catalogue_products_card_desc">Оригинальные Nike Jordan 1 в красно белом окрасе</div>
-                        <div class="catalogue_products_card_price">15 999 ₽</div>
-                    </a>
-                    <div class="catalogue_products_card_sizes">
-                        <span>37</span> | <span>38</span> | <span>39</span> | <span>40</span> | <span>41</span> | <span>42</span> | <span>43</span> | <span>44</span>
-                    </div>
-                </div>
-
-
-                <div class="catalogue_products_card">
-                    <a href="index.html">
-                        <div class="catalogue_products_card_image">
-                            <img src="./images/sneakers_product/orange_white/pngwing.com (11).png" />
-                            <img src="./images/sneakers_product/orange_white/orange_sneakers_jordan.png.png" />
-                        </div>
-                        <div class="catalogue_products_card_title">NIKE JORDAN 1</div>
-                        <div class="catalogue_products_card_desc">Оригинальные Nike Jordan 1 в красно белом окрасе</div>
-                        <div class="catalogue_products_card_price">15 999 ₽</div>
-                    </a>
-                    <div class="catalogue_products_card_sizes">
-                        <span>37</span> | <span>38</span> | <span>39</span> | <span>40</span> | <span>41</span> | <span>42</span> | <span>43</span> | <span>44</span>
-                    </div>
-                </div>
-
-                <div class="catalogue_products_card">
-                    <a href="index.html">
-                        <div class="catalogue_products_card_image">
-                            <img src="./images/sneakers_product/red_black/pngwing.com (6).png" />
-                            <img src="./images/sneakers_product/red_black/pngwing.com (3).png" />
-                        </div>
-                        <div class="catalogue_products_card_title">NIKE JORDAN 1</div>
-                        <div class="catalogue_products_card_desc">Оригинальные Nike Jordan 1 в красно белом окрасе</div>
-                        <div class="catalogue_products_card_price">15 999 ₽</div>
-                    </a>
-                    <div class="catalogue_products_card_sizes">
-                        <span>37</span> | <span>38</span> | <span>39</span> | <span>40</span> | <span>41</span> | <span>42</span> | <span>43</span> | <span>44</span>
-                    </div>
-                </div>
-
-                <div class="catalogue_products_card">
-                    <a href="index.html">
-                        <div class="catalogue_products_card_image">
-                            <img src="./images/sneakers_product/blue_black/pngwing.com (4).png" />
-                            <img src="./images/sneakers_product/blue_black/pngwing.com (8).png" />
-                        </div>
-                        <div class="catalogue_products_card_title">NIKE JORDAN 1</div>
-                        <div class="catalogue_products_card_desc">Оригинальные Nike Jordan 1 в красно белом окрасе</div>
-                        <div class="catalogue_products_card_price">15 999 ₽</div>
-                    </a>
-                    <div class="catalogue_products_card_sizes">
-                        <span>37</span> | <span>38</span> | <span>39</span> | <span>40</span> | <span>41</span> | <span>42</span> | <span>43</span> | <span>44</span>
-                    </div>
-                </div>
-
-                <div class="catalogue_products_card">
-                    <a href="index.html">
-                        <div class="catalogue_products_card_image">
-                            <img src="./images/sneakers_product/red_black_white/red_white_jordan_anfas.png" />
-                            <img src="./images/sneakers_product/red_black_white/red_sneakers_jordan.png" />
-                        </div>
-                        <div class="catalogue_products_card_title">NIKE JORDAN 1</div>
-                        <div class="catalogue_products_card_desc">Оригинальные Nike Jordan 1 в красно белом окрасе</div>
-                        <div class="catalogue_products_card_price">15 999 ₽</div>
-                    </a>
-                    <div class="catalogue_products_card_sizes">
-                        <span>37</span> | <span>38</span> | <span>39</span> | <span>40</span> | <span>41</span> | <span>42</span> | <span>43</span> | <span>44</span>
-                    </div>
-                </div>
-
+                <% }) %>
             </div>
         </section>
     </main>
+    <script src="/scripts/shopCart/addProductToCart.js"></script>
 
     <%- include('../common/_footer.ejs') %>
 

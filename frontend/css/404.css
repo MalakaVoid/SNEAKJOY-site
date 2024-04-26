@@ -65,6 +65,7 @@
   align-items: center;
 }
 .header_left div, .header_left a {
+  position: relative;
   width: 30px;
   height: 30px;
 }
@@ -74,6 +75,17 @@
 }
 .header_left div svg path, .header_left a svg path {
   stroke: var(--main-black);
+}
+.header #shopCartAmount {
+  z-index: 100;
+  position: absolute;
+  display: block;
+  border-radius: 5px;
+  right: -3px;
+  bottom: -12px;
+  font-weight: 600;
+  color: var(--main-black);
+  font-size: 0.8rem;
 }
 
 .white.header {
@@ -90,8 +102,21 @@
 .white.header .header_nav_bar li::after {
   background-color: var(--main-white);
 }
+.white.header .header_left a {
+  position: relative;
+}
 .white.header .header_left svg path {
   stroke: var(--main-white);
+}
+.white.header #shopCartAmount {
+  z-index: 100;
+  position: absolute;
+  display: block;
+  border-radius: 5px;
+  right: -3px;
+  bottom: -12px;
+  color: var(--main-white);
+  font-size: 0.8rem;
 }
 
 .footer {
@@ -252,4 +277,17 @@ body {
   text-align: center;
   text-transform: uppercase;
   margin-top: calc(0px - var(--header-height));
+}
+.not_found a {
+  display: inline-block;
+  background-color: var(--sup-black);
+  color: var(--main-white);
+  padding: 10px 20px;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-top: 30px;
+}
+.not_found a:hover {
+  background-color: var(--main-black);
+  transition: 0.25s;
 }/*# sourceMappingURL=404.css.map */

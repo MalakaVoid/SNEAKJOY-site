@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/varibles.css">
     <link rel="stylesheet" href="./css/main.css">
+    <%- include('../common/_favicon.ejs') %>
     <title><%= settings.title %></title>
 </head>
 <body>
@@ -72,91 +73,8 @@
                 </div>
             </div>
         </section>
-        <section class="popular">
-            <h1 class="popular_title">#ПОПУЛЯРНОЕ</h1>
-            <div class="popular_wrapper">
-                <div class="popular_card">
-                    <a href="google.com" class="popular_card_link">
-                        <div class="popular_card_image_wrapper">
-                            <img src="./images/sneakers_product/red_black/pngwing.com (6).png" />
-                            <img src="./images/sneakers_product/red_black/pngwing.com (3).png" />
-                        </div>
-                        <h3 class="popular_card_title">
-                            NIKE JORDAN 1
-                        </h3>
-                        <p class="popular_card_desc">
-                            Оригинальные Nike Jordan 1 в красно белом окрасе
-                        </p>
-                        <div class="popular_card_price">
-                            15 999 ₽
-                        </div>
-                    </a>
-                    <div class="popular_card_sizes">
-                        <span>37</span> | <span>38</span> | <span>39</span> | <span>40</span> | <span>41</span> | <span>42</span> | <span>43</span> | <span>44</span>
-                    </div>
-                </div>
-                <div class="popular_card">
-                    <a href="google.com" class="popular_card_link">
-                        <div class="popular_card_image_wrapper">
-                            <img src="./images/sneakers_product/blue_black/pngwing.com (4).png" />
-                            <img src="./images/sneakers_product/blue_black/pngwing.com (8).png" />
-                        </div>
-                        <h3 class="popular_card_title">
-                            NIKE JORDAN 1
-                        </h3>
-                        <p class="popular_card_desc">
-                            Оригинальные Nike Jordan 1 в красно белом окрасе
-                        </p>
-                        <div class="popular_card_price">
-                            15 999 ₽
-                        </div>
-                    </a>
-                    <div class="popular_card_sizes">
-                        <span>37</span> | <span>38</span> | <span>39</span> | <span>40</span> | <span>41</span> | <span>42</span> | <span>43</span> | <span>44</span>
-                    </div>
-                </div>
-                <div class="popular_card">
-                    <a href="google.com" class="popular_card_link">
-                        <div class="popular_card_image_wrapper">
-                            <img src="./images/sneakers_product/red_black_white/red_white_jordan_anfas.png" />
-                            <img src="./images/sneakers_product/red_black_white/red_sneakers_jordan.png" />
-                        </div>
-                        <h3 class="popular_card_title">
-                            NIKE JORDAN 1
-                        </h3>
-                        <p class="popular_card_desc">
-                            Оригинальные Nike Jordan 1 в красно белом окрасе
-                        </p>
-                        <div class="popular_card_price">
-                            15 999 ₽
-                        </div>
-                    </a>
-                    <div class="popular_card_sizes">
-                        <span>37</span> | <span>38</span> | <span>39</span> | <span>40</span> | <span>41</span> | <span>42</span> | <span>43</span> | <span>44</span>
-                    </div>
-                </div>
-                <div class="popular_card">
-                    <a href="google.com" class="popular_card_link">
-                        <div class="popular_card_image_wrapper">
-                            <img src="./images/sneakers_product/orange_white/pngwing.com (11).png" />
-                            <img src="./images/sneakers_product/orange_white/orange_sneakers_jordan.png.png" />
-                        </div>
-                        <h3 class="popular_card_title">
-                            NIKE JORDAN 1
-                        </h3>
-                        <p class="popular_card_desc">
-                            Оригинальные Nike Jordan 1 в красно белом окрасе
-                        </p>
-                        <div class="popular_card_price">
-                            15 999 ₽
-                        </div>
-                    </a>
-                    <div class="popular_card_sizes">
-                        <span>37</span> | <span>38</span> | <span>39</span> | <span>40</span> | <span>41</span> | <span>42</span> | <span>43</span> | <span>44</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+        
+        <%- include('../common/_popular.ejs') %>
 
         <section class="brands">
             <img src="./images/main_logos/Brands.png" alt="companies" />

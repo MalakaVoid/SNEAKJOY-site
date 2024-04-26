@@ -65,6 +65,7 @@
   align-items: center;
 }
 .header_left div, .header_left a {
+  position: relative;
   width: 30px;
   height: 30px;
 }
@@ -74,6 +75,17 @@
 }
 .header_left div svg path, .header_left a svg path {
   stroke: var(--main-black);
+}
+.header #shopCartAmount {
+  z-index: 100;
+  position: absolute;
+  display: block;
+  border-radius: 5px;
+  right: -3px;
+  bottom: -12px;
+  font-weight: 600;
+  color: var(--main-black);
+  font-size: 0.8rem;
 }
 
 .white.header {
@@ -90,8 +102,21 @@
 .white.header .header_nav_bar li::after {
   background-color: var(--main-white);
 }
+.white.header .header_left a {
+  position: relative;
+}
 .white.header .header_left svg path {
   stroke: var(--main-white);
+}
+.white.header #shopCartAmount {
+  z-index: 100;
+  position: absolute;
+  display: block;
+  border-radius: 5px;
+  right: -3px;
+  bottom: -12px;
+  color: var(--main-white);
+  font-size: 0.8rem;
 }
 
 .footer {

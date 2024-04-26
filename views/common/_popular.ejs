@@ -1,0 +1,37 @@
+<section class="popular">
+    <h1 class="popular_title">#ПОПУЛЯРНОЕ</h1>
+    <div class="popular_wrapper">
+
+        <% for( let i = 0; i < 4; i++ ) { %>
+            <div class="popular_card">
+                <a href="/product/<%= popularProduct[i].id %>" class="popular_card_link">
+                    <div class="popular_card_image_wrapper">
+                        <img src="<%= popularProduct[i].mainImage %>" />
+                        <img src="<%= popularProduct[i].supImage %>" />
+                    </div>
+                    <h3 class="popular_card_title">
+                        <%= popularProduct[i].title %>
+                    </h3>
+                    <p class="popular_card_desc">
+                        <%= popularProduct[i].descriptionSmall %>
+                    </p>
+                    <div class="popular_card_price">
+                        <%= popularProduct[i].price.toLocaleString('ru-RU', { style: 'currency', currency: 'RUB', maximumFractionDigits: 0 }) %>
+                    </div>
+                </a>
+                <div class="popular_card_sizes">
+                    <% for( let j = 0; j < popularProduct[i].sizes.length; j++ ) { %>
+                        <span onClick="addProductToCart(<%= popularProduct[i].id %>, <%= popularProduct[i].sizes[j] %>)">
+                            <%= popularProduct[i].sizes[j] %>
+                        </span>
+                        <% if (j !== popularProduct[i].sizes.length - 1) { %>
+                            &nbsp;|&nbsp;
+                        <% } %>
+                    <% } %>
+                </div>
+            </div>
+        <% } %>
+
+    </div>
+</section>
+<script src="/scripts/shopCart/addProductToCart.js"></script>
