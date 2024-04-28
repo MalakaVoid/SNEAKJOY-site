@@ -1,5 +1,5 @@
 const express = require('express');
-const { getProductById, getPopularProducts } = require('../database/product_operations');
+const { getProductById, getPopularProducts } = require('../database/productOperations');
 
 const router = express.Router();
 

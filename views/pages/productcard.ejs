@@ -14,6 +14,7 @@
     <title><%= settings.title %></title>
 </head>
 <body>
+    <script src="/scripts/authorization/redirectToAuth.js"></script>
 
     <%- include('../common/_header.ejs') %>
 
@@ -33,47 +34,19 @@
                     </div>
                     <div class="product_info_bottom">
                         <div class="product_info_sizes">
-    <!--              ЕСЛИ ВПАДЛУ ДЕЛАТЬ НОРМАЛЬНЫЙ ВВЫПАДАЮЩИЙ СПИСОК      -->
-                            <select>
+                            <select id="sizeField">
                                 <option disabled selected style="display: none;">РАЗМЕР</option>
                                 <% for( let i = 0; i < product.sizes.length; i++ ) { %>
                                      <option><%= product.sizes[i] %></option>
                                 <% } %>
                             </select>
-    <!-- 
-                            <div class="product_info_sizes_main">РАЗМЕР</div>
-                            <ul class="product_info_sizes_dropdown">
-                                <li>
-                                    <label>
-                                        <input type="radio" name="size" />
-                                        <span>39</span>
-                                    </label>
-                                </li>
-                                <li>
-                                    <label>
-                                        <input type="radio" name="size" />
-                                        <span>40</span>
-                                    </label>
-                                </li>
-                                <li>
-                                    <label>
-                                        <input type="radio" name="size" />
-                                        <span>41</span>
-                                    </label>
-                                </li>
-                                <li>
-                                    <label>
-                                        <input type="radio" name="size" />
-                                        <span>42</span>
-                                    </label>
-                                </li>
-                            </ul> -->
                         </div>
-                        <button>В КОРЗИНУ</button>
+                        <button value="<%= product.id %>" id="addToCartBtn">В КОРЗИНУ</button>
                     </div>
                 </div>
             </div>
         </section>
+        <script src="/scripts/productCard/productCard.js"></script>
 
         <%- include('../common/_popular.ejs') %>
 

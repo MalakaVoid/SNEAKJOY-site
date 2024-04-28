@@ -1,5 +1,5 @@
 const express = require('express');
-const { getAllProducts } = require('../database/product_operations');
+const { getAllProducts } = require('../database/productOperations');
 
 const router = express.Router();
 

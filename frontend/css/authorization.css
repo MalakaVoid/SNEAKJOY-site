@@ -26,6 +26,16 @@ body {
   overflow: hidden;
   border-radius: 20px;
 }
+.authorization_error_message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-size: 1rem;
+  color: red;
+  margin-top: 15px;
+  text-align: center;
+}
 .authorization_image {
   width: 100%;
   height: 100%;
@@ -83,7 +93,6 @@ body {
 .authorization form {
   display: none;
   width: 100%;
-  margin-top: 20px;
   flex-direction: column;
   align-items: center;
 }
@@ -105,6 +114,18 @@ body {
   bottom: 0;
   left: 0;
   transform: scaleX(0);
+}
+.authorization form .input_container.error:before {
+  transition: 0.2s;
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: red;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: scaleX(1);
+  z-index: 2;
 }
 .authorization form .input_container input {
   position: absolute;

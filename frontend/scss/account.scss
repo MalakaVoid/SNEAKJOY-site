@@ -103,6 +103,17 @@ main{
         justify-content: center;
         flex-direction: column;
 
+        &_error{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            font-size: 1rem;
+            color: red;
+            margin-top: 15px;
+            text-align: center;
+        }
+
         &.active{
             display: flex;
         }
@@ -117,6 +128,14 @@ main{
 
             button{
                 margin-top: 50px;
+            }
+
+            .account_part_form_button_exit{
+                margin-top: 20px;
+            }
+            .account_part_form_button_exit:hover{
+                background-color: red;
+                color: white;
             }
         }
 

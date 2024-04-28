@@ -14,6 +14,7 @@
     <title><%= settings.title %></title>
 </head>
 <body>
+    <script src="/scripts/authorization/redirectToAuth.js"></script>
 
     <%- include('../common/_header.ejs') %>
 
@@ -42,7 +43,7 @@
                         </a>
                         <div class="catalogue_products_card_sizes">
                             <% for( let i = 0; i < product.sizes.length; i++ ) { %>
-                                <span onClick="addProductToCart(<%= product.id %>, <%= product.sizes[i] %> %>)">
+                                <span onClick="addProductToCart(<%= product.id %>, <%= product.sizes[i] %>)">
                                     <%= product.sizes[i] %>
                                 </span>
                                 <% if (i !== product.sizes.length - 1) { %>

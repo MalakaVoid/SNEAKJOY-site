@@ -14,6 +14,7 @@
     <title><%= settings.title %></title>
 </head>
 <body>
+    <script src="/scripts/authorization/redirectToAuth.js"></script>
 
     <%- include('../common/_header.ejs') %>
 
@@ -33,26 +34,30 @@
                         <div class="account_part_image">
 
                         </div>
+                        <div class="account_part_error" id="accError">
+                            
+                        </div>
                         <form id="account_part_form">
                             <div class="account_part_form_wrapper">
                                 <label class="input_container">
-                                    <input type="text" required />
+                                    <input type="text" name="accName" required />
                                     <span>ИМЯ</span>
                                 </label>
                                 <label class="input_container">
-                                    <input type="text" required />
+                                    <input type="text" name="accEmail" required />
                                     <span>E-MAIL</span>
                                 </label>
                                 <label class="input_container">
-                                    <input type="password" required />
+                                    <input type="password" name="accPassword" required />
                                     <span>ПАРОЛЬ</span>
                                 </label>
                                 <label class="input_container">
-                                    <input type="password" required />
+                                    <input type="password" name="accPasswordAgain" required />
                                     <span>ПОВТОРИТЕ ПАРОЛЬ</span>
                                 </label>
                             </div>
-                            <button>СОХРАНИТЬ</button>
+                            <button type="button" class="account_part_form_button_save">СОХРАНИТЬ</button>
+                            <button type="button" class="account_part_form_button_exit">ВЫЙТИ</button>
                         </form>
                     </div>
 
@@ -251,5 +256,7 @@
     <%- include('../common/_footer.ejs') %>
 
     <script src="scripts/accountOrdersChanger.js"></script>
+    <script src="/scripts/account/accountLoad.js"></script>
+    <script src="/scripts/account/accountFormMng.js"></script>
 </body>
 </html>

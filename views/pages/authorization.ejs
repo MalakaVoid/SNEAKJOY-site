@@ -44,43 +44,48 @@
                     <h3 tabindex="2" id="registration_button">РЕГИСТРАЦИЯ</h3>
                 </div>
 
+                <div class="authorization_error_message" id="error_message">
+                    
+                </div>
+
 
                 <form id="authorization_form" class="active">
                     <label class="input_container">
-                        <input type="text" required />
+                        <input type="text" name="authEmail" required />
                         <span>E-MAIL</span>
                     </label>
                     <label class="input_container">
-                        <input type="password" required />
+                        <input type="password" name="authPassword" required />
                         <span>ПАРОЛЬ</span>
                     </label>
-                    <button>ВОЙТИ</button>
+                    <button disabled>ВОЙТИ</button>
                 </form>
 
 
                 <form id="registration_form">
                     <label class="input_container">
-                        <input type="text" required />
+                        <input type="text" name="regName" required />
                         <span>ИМЯ</span>
                     </label>
                     <label class="input_container">
-                        <input type="text" required />
+                        <input type="text" name="regEmail" required />
                         <span>E-MAIL</span>
                     </label>
                     <label class="input_container">
-                        <input type="password" required />
+                        <input type="password" name="regPassword" required />
                         <span>ПАРОЛЬ</span>
                     </label>
                     <label class="input_container">
-                        <input type="password" required />
+                        <input type="password" name="regPasswordAgain" required />
                         <span>ПОВТОРИТЕ ПАРОЛЬ</span>
                     </label>
-                    <button>СОЗДАТЬ АККАУНТ</button>
+                    <button disabled>СОЗДАТЬ АККАУНТ</button>
                 </form>
 
             </div>
         </div>
     </section>
-    <script src="scripts/authorizationFormChanger.js"></script>
+    <script src="/scripts/authorizationFormChanger.js"></script>
+    <script src="/scripts/authorization/authorization.js"></script>
 </body>
 </html>

@@ -265,6 +265,20 @@ body {
   width: 100%;
   box-sizing: border-box;
 }
+.shop_cart__empty {
+  width: 100%;
+  height: 100%;
+  min-height: 700px;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.2rem;
+  color: var(--sup-black);
+  text-align: center;
+  font-weight: 600;
+}
 .shop_cart_title {
   text-align: center;
   font-size: 2.5rem;

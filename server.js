@@ -4,7 +4,10 @@ const ejs = require('ejs');
 const pagesRouter = require('./routes/pages');
 const productRouter = require('./routes/product');
 const catalogueRouter = require('./routes/catalogue');
+const apiProductsRouter = require('./routes/apiProducts');
+const apiAuthRouter = require('./routes/auth');
 const mysql = require('mysql2');
+const bodyParser = require('body-parser')
 
 
 const app = express();
@@ -13,9 +16,16 @@ app.set('views', __dirname + '/views');
 app.use('/',express.static(path.join(__dirname, 'frontend')));
 // app.use("/public", express.static(__dirname + "/frontend"));
 
+app.use( bodyParser.json() );
+app.use(bodyParser.urlencoded({
+  extended: true
+})); 
+
 app.use('/', pagesRouter);
 app.use('/product', productRouter);
 app.use('/catalogue', catalogueRouter);
+app.use('/api/products', apiProductsRouter);
+app.use('/api/auth', apiAuthRouter);
 
 
 app.use(function(req, res, next){

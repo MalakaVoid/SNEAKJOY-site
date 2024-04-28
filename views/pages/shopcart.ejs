@@ -14,6 +14,7 @@
     <title><%= settings.title %></title>
 </head>
 <body>
+    <script src="/scripts/authorization/redirectToAuth.js"></script>
 
     <%- include('../common/_header.ejs') %>
 
@@ -25,92 +26,22 @@
             <div class="shop_cart_wrapper">
                 <div class="shop_cart_top">
                     <div>Товары</div>
-                    <div class="shop_cart_top_sum_amount">3 товара</div>
+                    <div class="shop_cart_top_sum_amount" id="cartProductAmount">3 товара</div>
                     <div class="shop_cart_top_amount">Количество</div>
                     <div class="shop_cart_top_price">Цена</div>
                 </div>
 
-                <div class="shop_cart_products_wrapper">
-
-                    <div class="shop_cart_card">
-                        <div class="shop_cart_card_image">
-                            <img src="./images/sneakers_product/red_black/pngwing.com (6).png" />
-                        </div>
-                        <div class="shop_cart_card_info">
-                            <div class="shop_cart_card_info_title">
-                                NIKE JORDAN 1
-                            </div>
-                            <div class="shop_cart_card_info_size">
-                                Размер: <span>42</span>
-                            </div>
-                        </div>
-                        <div class="shop_cart_card_amount">
-                            <div class="shop_cart_card_amount_picker">
-                                <div class="shop_cart_card_amount_picker_less">+</div>
-                                <div class="shop_cart_card_amount_picker_num">12</div>
-                                <div class="shop_cart_card_amount_picker_more">—</div>
-                            </div>
-                        </div>
-                        <div class="shop_cart_card_price">
-                            15 999 ₽
-                        </div>
-                    </div>
+                <div class="shop_cart_products_wrapper" id="cartProductContainer">
 
 
 
-                    <div class="shop_cart_card">
-                        <div class="shop_cart_card_image">
-                            <img src="./images/sneakers_product/red_black/pngwing.com (6).png" />
-                        </div>
-                        <div class="shop_cart_card_info">
-                            <div class="shop_cart_card_info_title">
-                                NIKE JORDAN 1
-                            </div>
-                            <div class="shop_cart_card_info_size">
-                                Размер: <span>42</span>
-                            </div>
-                        </div>
-                        <div class="shop_cart_card_amount">
-                            <div class="shop_cart_card_amount_picker">
-                                <div class="shop_cart_card_amount_picker_less">+</div>
-                                <div class="shop_cart_card_amount_picker_num">12</div>
-                                <div class="shop_cart_card_amount_picker_more">—</div>
-                            </div>
-                        </div>
-                        <div class="shop_cart_card_price">
-                            15 999 ₽
-                        </div>
-                    </div>
-                    <div class="shop_cart_card">
-                        <div class="shop_cart_card_image">
-                            <img src="./images/sneakers_product/red_black/pngwing.com (6).png" />
-                        </div>
-                        <div class="shop_cart_card_info">
-                            <div class="shop_cart_card_info_title">
-                                NIKE JORDAN 1
-                            </div>
-                            <div class="shop_cart_card_info_size">
-                                Размер: <span>42</span>
-                            </div>
-                        </div>
-                        <div class="shop_cart_card_amount">
-                            <div class="shop_cart_card_amount_picker">
-                                <div class="shop_cart_card_amount_picker_less">+</div>
-                                <div class="shop_cart_card_amount_picker_num">12</div>
-                                <div class="shop_cart_card_amount_picker_more">—</div>
-                            </div>
-                        </div>
-                        <div class="shop_cart_card_price">
-                            15 999 ₽
-                        </div>
-                    </div>
                 </div>
                 <div class="shop_cart_conclusion">
                     <div class="shop_cart_conclusion_summary">
                         <div class="shop_cart_conclusion_summary_title">
                             ИТОГО:
                         </div>
-                        <div class="shop_cart_conclusion_summary_price">
+                        <div id="cartTotal" class="shop_cart_conclusion_summary_price">
                             15 999 ₽
                         </div>
                     </div>
@@ -121,6 +52,8 @@
     </main>
 
     <%- include('../common/_footer.ejs') %>
+    <script  src="/scripts/shopCart/loadShopCart.js"></script>
+    <script src="/scripts/shopCart/amountPickerMng.js"></script>
 
 </body>
 </html>

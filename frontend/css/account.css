@@ -443,6 +443,16 @@ main {
   justify-content: center;
   flex-direction: column;
 }
+.account_part_error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-size: 1rem;
+  color: red;
+  margin-top: 15px;
+  text-align: center;
+}
 .account_part.active {
   display: flex;
 }
@@ -470,6 +480,18 @@ main {
   bottom: 0;
   left: 0;
   transform: scaleX(0);
+}
+.account_part form .input_container.error:before {
+  transition: 0.2s;
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: red;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: scaleX(1);
+  z-index: 2;
 }
 .account_part form .input_container input {
   position: absolute;
@@ -517,6 +539,13 @@ main {
 }
 .account_part form button {
   margin-top: 50px;
+}
+.account_part form .account_part_form_button_exit {
+  margin-top: 20px;
+}
+.account_part form .account_part_form_button_exit:hover {
+  background-color: red;
+  color: white;
 }
 .account_part_image {
   display: block;

@@ -76,3 +76,39 @@ module.exports.getPopularProducts = async function getPopularProducts(){
         return 'error';
     }
 }
+
+module.exports.getProductsById = async function getProductsById(productIds){
+    const connection = await conn.getConnection();
+    let query = "SELECT * FROM products WHERE ";
+    for (let i = 0; i < productIds.length; i++) {
+
+        query += "product_id = " + productIds[i];
+
+        if (i !== productIds.length - 1){
+            query = query + " OR ";
+        }
+
+    }
+    let results = [];
+    try{
+        [results] = await connection.query(query);
+    } catch (err) {
+        return {
+            code: 501, 
+            error: err.message
+        };
+    }
+    connection.release();
+    
+    let products = results.map(function(item){
+        return {
+            id: item.product_id,
+            title: item.title,
+            price: item.price,
+            mainImage: item.main_image,
+            supImage: item.sup_image,
+        }
+    })
+
+    return products;
+}
