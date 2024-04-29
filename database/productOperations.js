@@ -52,6 +52,19 @@ module.exports.getProductById = async function getProductById(id){
     };
 }
 
+module.exports.getProductNameById = async function getProductNameById(id){
+    const connection = await conn.getConnection();
+
+    let [results] = await connection.query("SELECT title FROM products WHERE product_id =?", [id]);
+    connection.release();
+
+    let product = {
+        title: results[0].title,
+    }
+
+    return product;
+}
+
 module.exports.getPopularProducts = async function getPopularProducts(){
     const connection = await conn.getConnection();
     let [results] = await connection.query("SELECT * FROM products WHERE is_popular=1");

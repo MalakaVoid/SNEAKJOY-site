@@ -37,6 +37,9 @@
 
                 </div>
                 <div class="shop_cart_conclusion">
+                    <div class="shop_cart_conclusion_error" id="conclusionError">
+                        
+                    </div>
                     <div class="shop_cart_conclusion_summary">
                         <div class="shop_cart_conclusion_summary_title">
                             ИТОГО:
@@ -45,7 +48,7 @@
                             15 999 ₽
                         </div>
                     </div>
-                    <button>ОПЛАТИТЬ</button>
+                    <button id="makeOrder">ОПЛАТИТЬ</button>
                 </div>
             </div>
         </section>
@@ -54,6 +57,7 @@
     <%- include('../common/_footer.ejs') %>
     <script  src="/scripts/shopCart/loadShopCart.js"></script>
     <script src="/scripts/shopCart/amountPickerMng.js"></script>
+    <script src="/scripts/shopCart/orderMng.js"></script>
 
 </body>
 </html>

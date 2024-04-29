@@ -10,7 +10,7 @@ window.addEventListener('load', async function(e){
 });
 
 function exitAccount(){
-    localStorage.removeItem('user');
+    localStorage.clear();
     location.reload();
 }
 

@@ -6,6 +6,8 @@ const productRouter = require('./routes/product');
 const catalogueRouter = require('./routes/catalogue');
 const apiProductsRouter = require('./routes/apiProducts');
 const apiAuthRouter = require('./routes/auth');
+const apiReviewsRouter = require('./routes/reviews');
+const apiOrderRouter = require('./routes/order');
 const mysql = require('mysql2');
 const bodyParser = require('body-parser')
 
@@ -26,6 +28,8 @@ app.use('/product', productRouter);
 app.use('/catalogue', catalogueRouter);
 app.use('/api/products', apiProductsRouter);
 app.use('/api/auth', apiAuthRouter);
+app.use('/api/reviews', apiReviewsRouter);
+app.use('/api/order', apiOrderRouter);
 
 
 app.use(function(req, res, next){
