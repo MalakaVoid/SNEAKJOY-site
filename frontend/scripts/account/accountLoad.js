@@ -1,8 +1,9 @@
 window.addEventListener('load', async function(e){
-    let userInfo = localStorage.getItem('user');
-    userInfo = JSON.parse(userInfo);
+    // let userInfo = localStorage.getItem('user');
+    // userInfo = JSON.parse(userInfo);
 
-    let user = await getUserData(userInfo.id);
+    // let user = await getUserData(userInfo.id);
+    let user = await getUserData();
 
     let nameField = document.querySelector('[name="accName"]');
     let emailField = document.querySelector('[name="accEmail"]');
@@ -11,15 +12,12 @@ window.addEventListener('load', async function(e){
     emailField.value = user.email;
 });
 
-async function getUserData(userId){
+async function getUserData(){
     let response = await fetch('/api/auth/getuserbyid', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            id: userId
-        })
+        }
     })
 
     let result = await response.json();

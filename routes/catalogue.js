@@ -1,5 +1,6 @@
 const express = require('express');
 const { getAllProducts } = require('../database/productOperations');
+const { userCheck } = require('../utils/redirectUnauth');
 
 const router = express.Router();
 
@@ -87,7 +88,7 @@ let products = [
 
 ]
 
-router.get('/', async function(req, res){
+router.get('/', userCheck, async function(req, res){
     let data = await getAllProducts();
 
     res.status(200).render('pages/catalogue', {
@@ -95,6 +96,7 @@ router.get('/', async function(req, res){
             title: 'Catalogue',
             isHeaderWhite: false
         },
+        isAdmin: !!req.session.user?.isAdmin,
         products: data
 
     });

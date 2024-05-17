@@ -131,12 +131,20 @@ main{
             }
 
             .account_part_form_button_exit{
+                display: inline-block;
+                background-color: var(--sup-black);
+                padding: 10px 20px;
+                font-weight: 700;
+                font-size: 1rem;
                 margin-top: 20px;
+        
+                &:hover{
+                    background-color: red;
+                    color: white;
+                    transition: 0.25s;
+                }
             }
-            .account_part_form_button_exit:hover{
-                background-color: red;
-                color: white;
-            }
+
         }
 
         &_image{

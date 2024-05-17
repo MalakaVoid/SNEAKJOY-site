@@ -6,8 +6,14 @@ const router = express.Router();
 
 
 router.post('/addreview', async function(req, res){
-    console.log(1)
-    let userId = req.body.userId;
+    if (!req.session.user){
+        res.status(301).json({
+            code: 301,
+        });
+        return;
+    }
+
+    let userId = req.session.user.id;
     let userName = req.body.name;
     let userEmail = req.body.email;
     let userText = req.body.text;

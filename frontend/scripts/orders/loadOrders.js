@@ -4,17 +4,14 @@ window.addEventListener('load', async function(e){
 
 async function loadOrders(){
 
-    let user = localStorage.getItem('user');
-    user = JSON.parse(user);
+    // let user = localStorage.getItem('user');
+    // user = JSON.parse(user);
 
     let response = await fetch('/api/order/getordersbyuserid', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            userId: user.id
-        })
+        }
     })
 
     let result = await response.json();

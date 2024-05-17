@@ -1,7 +1,16 @@
-function addProductToCart(productId, size){
+async function addProductToCart(productId, size){
 
-    let user = localStorage.getItem('user');
-    if (user === null){
+    let userResponse = await fetch('/api/auth/checkauth',
+        {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+    )
+
+    let userResult = await userResponse.json();
+    if (userResult.code!== 200){
         window.location.replace("/authorization");
         return;
     }

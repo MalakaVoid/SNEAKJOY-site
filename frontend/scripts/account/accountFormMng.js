@@ -9,17 +9,14 @@ window.addEventListener('load', async function(e){
 
 });
 
-function exitAccount(){
-    localStorage.clear();
-    location.reload();
+async function exitAccount(){
+    await fetch('/api/auth/exit');
+    window.reload();
 }
 
 async function changeUserData(event){
     let errorContainer = document.querySelector('#accError');
     errorContainer.innerHTML = '';
-
-    let userInfo = localStorage.getItem('user');
-    userInfo = JSON.parse(userInfo)
 
     let accountForm = document.querySelector('#account_part_form');
 
@@ -34,7 +31,7 @@ async function changeUserData(event){
         return;
     }
 
-    let user = await getUserData(userInfo.id);
+    let user = await getUserData();
     let edditedUser = {};
 
     if (email!== user.email){

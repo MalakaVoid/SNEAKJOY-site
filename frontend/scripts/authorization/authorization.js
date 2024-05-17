@@ -59,11 +59,6 @@ async function onAuthFormSubmit(event){
         errorHandling(result);
         return;
     }
-
-    localStorage.setItem('user', JSON.stringify({
-        id: result.user.id,
-        isAdmin: result.user.isAdmin
-    }));
     
     window.location.replace("/account");
 }
@@ -108,11 +103,6 @@ async function onRegFormSubmit(event){
         errorHandling(result);
         return;
     }
-    
-    localStorage.setItem('user', JSON.stringify({
-        id: result.user.id,
-        isAdmin: result.user.isAdmin
-    }));
     
     window.location.replace("/account");
 

@@ -5,14 +5,6 @@ window.addEventListener('load', function(e){
 
 async function handleReviewFormSubmit(e){
     e.preventDefault();
-
-    let user = localStorage.getItem('user');
-    user = JSON.parse(user);
-
-    if (user == null){
-        window.location.replace("/authorization");
-        return;
-    }
     
     let reviewForm = document.querySelector('#reviewForm');
     let nameField = reviewForm.querySelector('[name="reviewName"]');
@@ -28,7 +20,6 @@ async function handleReviewFormSubmit(e){
     }
 
     let sendData = {
-        userId: user.id,
         name: name,
         email: email,
         text: text,
@@ -47,6 +38,10 @@ async function handleReviewFormSubmit(e){
     if (result.code === 501){
         showReviewPopup('Ошибка', 'Произошла ошибка на стороне сервера, попробуйте еще раз!');
         return;
+    }
+
+    if (result.code === 301){
+        window.location.href = "/authorization";
     }
 
     showReviewPopup('Заявка принята', 'Спасибо за отзыв, ваш отзыв сохранен.')

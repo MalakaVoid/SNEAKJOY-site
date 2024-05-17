@@ -108,6 +108,9 @@
 .white.header .header_left svg path {
   stroke: var(--main-white);
 }
+.white.header .header_left #SVGRepo_bgCarrier {
+  fill: white !important;
+}
 .white.header #shopCartAmount {
   z-index: 100;
   position: absolute;
@@ -266,11 +269,10 @@
 .review_popup__card {
   width: 100%;
   max-width: 400px;
-  height: 250px;
   background-color: var(--main-white);
-  border-radius: 20px;
   box-sizing: border-box;
   padding: 20px;
+  padding-bottom: 60px;
   position: relative;
 }
 .review_popup__title {
@@ -590,11 +592,17 @@ main {
   margin-top: 50px;
 }
 .account_part form .account_part_form_button_exit {
+  display: inline-block;
+  background-color: var(--sup-black);
+  padding: 10px 20px;
+  font-weight: 700;
+  font-size: 1rem;
   margin-top: 20px;
 }
 .account_part form .account_part_form_button_exit:hover {
   background-color: red;
   color: white;
+  transition: 0.25s;
 }
 .account_part_image {
   display: block;

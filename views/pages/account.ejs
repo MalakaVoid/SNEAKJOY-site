@@ -14,7 +14,6 @@
     <title><%= settings.title %></title>
 </head>
 <body>
-    <script src="/scripts/authorization/redirectToAuth.js"></script>
 
     <%- include('../common/_header.ejs') %>
 
@@ -57,7 +56,8 @@
                                 </label>
                             </div>
                             <button type="button" class="account_part_form_button_save">СОХРАНИТЬ</button>
-                            <button type="button" class="account_part_form_button_exit">ВЫЙТИ</button>
+                            <!-- <button type="button" class="account_part_form_button_exit">ВЫЙТИ</button> -->
+                            <a href="/exit" class="account_part_form_button_exit">ВЫЙТИ</a>
                         </form>
                     </div>
 

@@ -108,6 +108,9 @@
 .white.header .header_left svg path {
   stroke: var(--main-white);
 }
+.white.header .header_left #SVGRepo_bgCarrier {
+  fill: white !important;
+}
 .white.header #shopCartAmount {
   z-index: 100;
   position: absolute;
@@ -371,11 +374,10 @@
 .review_popup__card {
   width: 100%;
   max-width: 400px;
-  height: 250px;
   background-color: var(--main-white);
-  border-radius: 20px;
   box-sizing: border-box;
   padding: 20px;
+  padding-bottom: 60px;
   position: relative;
 }
 .review_popup__title {

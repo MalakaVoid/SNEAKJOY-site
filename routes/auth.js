@@ -34,6 +34,10 @@ router.post('/login', async function(req, res){
         return;
     }
 
+    req.session.user = {
+        id: responseUser.id,
+        isAdmin: responseUser.isAdmin
+    }
     res.status(200).json({
         code: 200,
         user: {
@@ -103,7 +107,7 @@ router.post('/register', async function(req, res){
 });
 
 router.post('/getuserbyid', async function(req, res){
-    let userId = req.body.id;
+    let userId = req.session.user.id;
     let getUserResponse = await getUserById(userId);
 
     if (getUserResponse.code === 501) {
@@ -164,6 +168,25 @@ router.post('/edituser', async function(req, res){
             name: userName,
             email: userEmail,
             isAdmin: isAdmin,
+        }
+    })
+
+});
+
+router.post('/checkauth', async function(req, res){
+    if (!req.session.user){
+        res.status(200).json({
+            code: 404,
+            message: 'Пользователь не авторизован'
+        });
+        return;
+    }
+
+    res.status(200).json({
+        code: 200,
+        user: {
+            id: req.session.user.id,
+            isAdmin: req.session.user.isAdmin
         }
     })
 

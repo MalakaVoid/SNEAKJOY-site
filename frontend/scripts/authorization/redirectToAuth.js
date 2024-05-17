@@ -1,5 +1,5 @@
 let user = localStorage.getItem('user');
 console.log(user);
-if (user == null){
+if (!user){
     window.location.replace("/authorization");
 }

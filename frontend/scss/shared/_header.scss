@@ -125,9 +125,14 @@
         }
 
         svg{
+
             path{
                 stroke: var(--main-white);
             }
+        }
+
+        #SVGRepo_bgCarrier{
+            fill: white !important;
         }
     }
 

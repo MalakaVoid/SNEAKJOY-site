@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.post('/makeorder', async function(req, res){
 
-    let userId = req.body.userId;
+    let userId = req.session.user.id;
     let userProducts = req.body.products;
 
     let productIds = userProducts.map(product => product.id);
@@ -39,7 +39,7 @@ router.post('/makeorder', async function(req, res){
 
 router.post('/getordersbyuserid', async function(req, res){
 
-    let userId = req.body.userId;
+    let userId = req.session.user.id;
 
     let responseOrders = await getOrderByUserId(userId);
 
