@@ -6,7 +6,6 @@ const router = express.Router();
 
 
 router.get('/', async function(req, res){
-    console.log('After Check')
     let responsePopular = await getPopularProducts();
 
     res.status(200).render('pages/index', {

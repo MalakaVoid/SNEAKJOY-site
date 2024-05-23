@@ -1,5 +1,5 @@
 const express = require('express');
-const { getUserByEmail, checkUserEmailExistance, addUser, getUserById, editUser } = require('../database/userOperations');
+const { getUserByEmail, checkUserEmailExistance, addUser, getUserById, editUser } = require('../../database/userOperations');
 
 const router = express.Router();
 
@@ -94,6 +94,12 @@ router.post('/register', async function(req, res){
             code: 501,
         });
         return;
+    }
+
+    
+    req.session.user = {
+        id: getUserResponse.user.id,
+        isAdmin: getUserResponse.user.isAdmin
     }
 
     res.status(200).json({

@@ -1,10 +1,12 @@
 const express = require('express');
 const { getProductById, getPopularProducts } = require('../database/productOperations');
+const { userCheck } = require('../utils/redirectUnauth');
 
 const router = express.Router();
 
 
-router.get('/:id', async function(req, res){
+router.get('/:id', userCheck, async function(req, res){
+    
     let productId = req.params.id;
 
     let responseProduct = await getProductById(productId);
@@ -15,7 +17,8 @@ router.get('/:id', async function(req, res){
             settings:{
                 title: 'Error',
                 isHeaderWhite: false
-            }
+            },
+            isAdmin: !!req.session.user?.isAdmin,
         });
         return;
     }
@@ -25,6 +28,7 @@ router.get('/:id', async function(req, res){
             title: 'Product Card',
             isHeaderWhite: false
         },
+        isAdmin: !!req.session.user?.isAdmin,
         product: responseProduct.product,
         popularProduct: responsePopular
     });

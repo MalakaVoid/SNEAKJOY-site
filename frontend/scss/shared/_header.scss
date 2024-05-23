@@ -60,6 +60,12 @@
         left: 50%;
         transform: translate(-50%, -50%);
 
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+        gap: 10px;
+
         svg{
             width: 149px;
             height: 47px;

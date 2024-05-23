@@ -83,12 +83,6 @@ module.exports.getAllUsers = async function getAllUsers(){
         }
     }
     connection.release();
-
-    if (results.length === 0){
-        return {
-            code: 404
-        }
-    }
     
     let users = results.map(user => {
         return {
@@ -134,7 +128,7 @@ module.exports.addUser = async function addUser(email, name, password, isAdmin){
         connection.release();
         return {
             code: 501,
-            error: e.message
+            error: e.message,
         }
     }
     connection.release();
@@ -150,11 +144,12 @@ module.exports.editUser = async function editUser(userId, email, name, password,
     const connection = await conn.getConnection();
     let results = [];
     try{
-        [results] = await connection.query(
+        [results] = await connection.query(`SELECT * FROM users WHERE user_id = ${userId}`);
+
+        await connection.query(
             `UPDATE users SET email = '${email}', name = '${name}', password = '${password}', is_admin = '${isAdmin? 1 : 0}' WHERE user_id = ${userId}`
         );
     }catch(e){
-        console.log(e);
         connection.release();
         return {
             code: 501,
@@ -165,5 +160,47 @@ module.exports.editUser = async function editUser(userId, email, name, password,
 
     return {
         code: 200,
+        oldUser: {
+            id: results[0].user_id,
+            name: results[0].name,
+            email: results[0].email,
+            password: results[0].password,
+            isAdmin: results[0].is_admin == 1
+        },
+        newUser: {
+            id: userId,
+            name: name,
+            email: email,
+            password: password,
+            isAdmin: isAdmin
+        }
+    };
+}
+
+
+module.exports.deleteUser = async function deleteUser(id){
+    const connection = await conn.getConnection();
+    let results ;
+    try{
+        [results] = await connection.query(`SELECT * FROM users WHERE user_id = ${id}`);
+        await connection.query(`DELETE FROM users WHERE user_id = ${id}`);
+    }catch(e){
+        connection.release();
+        return {
+            code: 501,
+            error: e.message
+        }
+    }
+    connection.release();
+
+    return {
+        code: 200,
+        user: {
+            id: results[0].user_id,
+            name: results[0].name,
+            email: results[0].email,
+            password: results[0].password,
+            isAdmin: results[0].is_admin == 1
+        }
     };
 }

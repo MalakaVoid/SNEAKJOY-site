@@ -1,5 +1,5 @@
 const express = require('express');
-const { addReview } = require('../database/reviewOperations');
+const { addReview, getReviews, deleteReview } = require('../../database/reviewOperations');
 
 
 const router = express.Router();
@@ -33,5 +33,22 @@ router.post('/addreview', async function(req, res){
 
 });
 
+router.get('/', async function(req, res){
+
+    let response = await getReviews();
+
+    res.status(200).json(response)
+
+})
+
+router.delete('/', async function(req, res){
+
+    let { id } = req.body;
+
+    let response = await deleteReview(id);
+
+    res.status(200).json(response)
+
+})
 
 module.exports = router;

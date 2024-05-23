@@ -1,0 +1,557 @@
+.header {
+  width: 100%;
+  height: var(--header-height);
+  display: block;
+  position: fixed;
+  z-index: 100;
+  padding: 0 var(--side-paddings);
+  box-sizing: border-box;
+  color: var(--main-black);
+  background-color: var(--main-white);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+}
+.header_wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+.header_nav_bar {
+  display: flex;
+  gap: 30px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  font-size: 1.25rem;
+  line-height: 1.875rem;
+}
+.header_nav_bar li {
+  text-transform: uppercase;
+  position: relative;
+  cursor: pointer;
+}
+.header_nav_bar li:hover::after {
+  transform: scaleX(1);
+}
+.header_nav_bar li::after {
+  content: "";
+  width: 100%;
+  height: 2px;
+  background-color: var(--main-black);
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  transform: scaleX(0);
+  transition: 0.2s ease-in-out;
+}
+.header_logo {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  gap: 10px;
+}
+.header_logo svg {
+  width: 149px;
+  height: 47px;
+}
+.header_left {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+.header_left div, .header_left a {
+  position: relative;
+  width: 30px;
+  height: 30px;
+}
+.header_left div svg, .header_left a svg {
+  width: inherit;
+  height: inherit;
+}
+.header_left div svg path, .header_left a svg path {
+  stroke: var(--main-black);
+}
+.header #shopCartAmount {
+  z-index: 100;
+  position: absolute;
+  display: block;
+  border-radius: 5px;
+  right: -3px;
+  bottom: -12px;
+  font-weight: 600;
+  color: var(--main-black);
+  font-size: 0.8rem;
+}
+
+.white.header {
+  color: var(--main-white);
+  background-color: rgba(0, 0, 0, 0);
+  box-shadow: none;
+}
+.white.header .header_logo .logo_color_stroke {
+  stroke: var(--main-white);
+}
+.white.header .header_logo .logo_color_fill {
+  fill: var(--main-white);
+}
+.white.header .header_nav_bar li::after {
+  background-color: var(--main-white);
+}
+.white.header .header_left a {
+  position: relative;
+}
+.white.header .header_left svg path {
+  stroke: var(--main-white);
+}
+.white.header .header_left #SVGRepo_bgCarrier {
+  fill: white !important;
+}
+.white.header #shopCartAmount {
+  z-index: 100;
+  position: absolute;
+  display: block;
+  border-radius: 5px;
+  right: -3px;
+  bottom: -12px;
+  color: var(--main-white);
+  font-size: 0.8rem;
+}
+
+.popup {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.popup__card {
+  width: 100%;
+  max-width: 400px;
+  background-color: var(--main-white);
+  box-sizing: border-box;
+  padding: 20px;
+  padding-bottom: 60px;
+  position: relative;
+}
+.popup__title {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 30px;
+  width: 100%;
+}
+.popup__text {
+  font-size: 1.1rem;
+  margin-top: 15px;
+  width: 100%;
+  text-align: center;
+}
+.popup__exit {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.popup__exit svg {
+  width: inherit;
+  height: inherit;
+}
+
+body {
+  font-family: Roboto;
+  font-weight: 400;
+  max-width: 1920px;
+  margin: 0 auto;
+  overflow-x: hidden;
+  min-height: 960px;
+  color: var(--main-black);
+}
+
+textarea {
+  resize: vertical;
+}
+
+textarea::-webkit-scrollbar {
+  display: none;
+}
+
+main {
+  padding-top: var(--header-height);
+  padding-bottom: 100px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--main-black);
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.action {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 40px;
+}
+.action__item {
+  width: 250px;
+  padding: 8px 0;
+  text-align: center;
+  background-color: var(--sup-black);
+  color: var(--main-white);
+  font-size: 18px;
+  cursor: pointer;
+}
+.action__item:hover {
+  background-color: var(--main-black);
+  color: var(--main-white);
+  transition: 0.25s;
+}
+
+.add_block {
+  display: none;
+  max-width: 600px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+.add_block.active {
+  display: block;
+}
+.add_block form {
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.add_block input[type=text],
+.add_block input[type=number],
+.add_block select,
+.add_block textarea {
+  font-family: Roboto;
+  font-size: 18px;
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px solid var(--main-black);
+  box-sizing: border-box;
+  background-color: transparent;
+}
+.add_block input[type=text]:focus,
+.add_block input[type=number]:focus,
+.add_block select:focus,
+.add_block textarea:focus {
+  outline: none;
+  border: 1px solid var(--main-black);
+}
+.add_block select {
+  font-family: Roboto;
+  overflow-y: hidden;
+  overflow-x: visible;
+  height: 35px;
+  width: 250px;
+}
+.add_block select option {
+  font-family: Roboto;
+  margin-left: 5px;
+  float: left;
+}
+.add_block input[type=checkbox] {
+  scale: 1.4;
+  margin-right: 15px;
+}
+.add_block textarea {
+  height: 150px;
+  resize: none;
+}
+.add_block .input_container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+.add_block .input_container__select {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button {
+  width: 250px;
+  padding: 8px 0;
+  text-align: center;
+  background-color: var(--sup-black);
+  color: var(--main-white);
+  font-size: 18px;
+  cursor: pointer;
+  margin: 0 auto;
+}
+.button:hover {
+  background-color: var(--main-black);
+  color: var(--main-white);
+  transition: 0.25s;
+}
+
+.edit_block {
+  display: none;
+  max-width: 1350px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+.edit_block.active {
+  display: block;
+}
+.edit_block .cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 30px;
+}
+.edit_block .cards .card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 15px;
+  background-color: var(--main-black);
+  color: var(--main-white);
+}
+.edit_block .cards .card .title {
+  color: var(--main-white);
+  font-size: 22px;
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+.edit_block .cards .card .input_container {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+}
+.edit_block .cards .card input[type=text],
+.edit_block .cards .card input[type=number],
+.edit_block .cards .card select,
+.edit_block .cards .card textarea {
+  outline: none;
+  font-family: Roboto;
+  font-size: 16px;
+  width: 250px;
+  padding: 6px 10px;
+  border: 1px solid var(--main-black);
+  box-sizing: border-box;
+  background-color: var(--sup-black);
+  color: var(--main-white);
+}
+.edit_block .cards .card input[type=text]:focus,
+.edit_block .cards .card input[type=number]:focus,
+.edit_block .cards .card select:focus,
+.edit_block .cards .card textarea:focus {
+  outline: none;
+  border: 1px solid var(--main-black);
+}
+.edit_block .cards .card input[type=text]:disabled,
+.edit_block .cards .card input[type=number]:disabled,
+.edit_block .cards .card select:disabled,
+.edit_block .cards .card textarea:disabled {
+  border: 1px solid var(--sup-black) !important;
+  background-color: var(--main-black);
+  color: var(--main-white);
+}
+.edit_block .cards .card input[type=text]::placeholder,
+.edit_block .cards .card input[type=number]::placeholder,
+.edit_block .cards .card select::placeholder,
+.edit_block .cards .card textarea::placeholder {
+  color: var();
+}
+.edit_block .cards .card select {
+  font-family: Roboto;
+  overflow-y: hidden;
+  overflow-x: visible;
+  height: 35px;
+  width: 250px;
+  box-sizing: border-box;
+}
+.edit_block .cards .card select option {
+  font-family: Roboto;
+  margin-left: 5px;
+  float: left;
+}
+.edit_block .cards .card textarea {
+  height: 100px;
+}
+.edit_block .cards .card .input_container_checkbox {
+  justify-content: center;
+  gap: 10px;
+}
+.edit_block .cards .card .input_container_checkbox [type=checkbox] {
+  scale: 1.2;
+}
+.edit_block .cards .card .button-edit {
+  display: block;
+  width: 100%;
+  padding: 8px 0;
+  text-align: center;
+  background-color: var(--sup-black);
+  color: var(--main-white);
+  font-size: 18px;
+  cursor: pointer;
+  margin: 0 auto;
+  margin-top: 20px;
+  text-transform: uppercase;
+}
+.edit_block .cards .card .button-edit:hover {
+  background-color: var(--main-white);
+  color: var(--main-black);
+  transition: 0.25s;
+}
+
+.delete_block {
+  display: none;
+  max-width: 1350px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+.delete_block.active {
+  display: block;
+}
+.delete_block .cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 30px;
+}
+.delete_block .cards .card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 15px;
+  box-sizing: border-box;
+  background-color: var(--main-black);
+  color: var(--main-white);
+}
+.delete_block .cards .card .title {
+  color: var(--main-white);
+  font-size: 22px;
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+.delete_block .cards .card p {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.delete_block .cards .card_price {
+  font-weight: bold;
+}
+.delete_block .cards .card .button_delete {
+  display: block;
+  width: 100%;
+  padding: 8px 0;
+  text-align: center;
+  background-color: var(--sup-black);
+  color: var(--main-white);
+  font-size: 18px;
+  cursor: pointer;
+  margin: 0 auto;
+  margin-top: 20px;
+  text-transform: uppercase;
+}
+.delete_block .cards .card .button_delete:hover {
+  background-color: var(--main-white);
+  color: var(--main-black);
+  transition: 0.25s;
+}
+
+.one_delete_block {
+  max-width: 1350px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+.one_delete_block .cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 30px;
+}
+.one_delete_block .cards .card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 15px;
+  box-sizing: border-box;
+  background-color: var(--main-black);
+  color: var(--main-white);
+}
+.one_delete_block .cards .card .title {
+  color: var(--main-white);
+  font-size: 22px;
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+.one_delete_block .cards .card__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: var(--main-white);
+}
+.one_delete_block .cards .card__item > div {
+  border: 1px solid var(--sup-black);
+  width: 250px;
+  font-size: 16px;
+  padding: 6px 10px;
+  box-sizing: border-box;
+}
+.one_delete_block .cards .card__item > div span {
+  color: var(--sup-black);
+}
+.one_delete_block .cards .card__item.big > div {
+  height: 150px;
+  overflow-y: auto;
+}
+.one_delete_block .cards .card__item.big > div::-webkit-scrollbar {
+  display: none;
+}
+.one_delete_block .cards .card .button_delete {
+  display: block;
+  width: 100%;
+  padding: 8px 0;
+  text-align: center;
+  background-color: var(--sup-black);
+  color: var(--main-white);
+  font-size: 18px;
+  cursor: pointer;
+  margin: 0 auto;
+  margin-top: 20px;
+  text-transform: uppercase;
+}
+.one_delete_block .cards .card .button_delete:hover {
+  background-color: var(--main-white);
+  color: var(--main-black);
+  transition: 0.25s;
+}/*# sourceMappingURL=admin.css.map */

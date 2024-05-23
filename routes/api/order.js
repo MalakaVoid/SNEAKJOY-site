@@ -1,6 +1,6 @@
 const express = require('express');
-const { makeOrder, getOrderByUserId } = require('../database/orderOperations');
-const { getProductsById } = require('../database/productOperations');
+const { makeOrder, getOrderByUserId, getOrders, deleteOrder } = require('../../database/orderOperations');
+const { getProductsById } = require('../../database/productOperations');
 
 const router = express.Router();
 
@@ -49,5 +49,24 @@ router.post('/getordersbyuserid', async function(req, res){
     })
 
 });
+
+
+router.get('/', async function (req, res) {
+
+    let response = await getOrders();
+
+    res.status(200).json(response)
+
+})
+
+router.delete('/', async function (req, res) {
+
+    let { id } = req.body;
+
+    let response = await deleteOrder(id);
+
+    res.status(200).json(response)
+
+})
 
 module.exports = router;

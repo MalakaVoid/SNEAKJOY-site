@@ -75,6 +75,63 @@ module.exports.getOrderByUserId = async function getOrderByUserId(userId){
         code: 200,
         orders: orders
     };
+}
 
+module.exports.getOrders = async function getOrders(){
+    const connection = await conn.getConnection();
+    let [results] = await connection.query(`SELECT * FROM orders`);
+    
+    let orders = [];
+
+    for (let i = 0; i < results.length; i++) {
+        let order = {
+            id: results[i].order_id,
+            userId: results[i].user_id,
+            totalPrice: results[i].total_price,
+            creationDate: results[i].creation_date,
+            deliveryDate: results[i].delivery_date,
+            products: []
+        }
+    
+        let [result] = await connection.query(`SELECT * FROM order_items WHERE order_id = ${order.id}`);
+        for (product of result){
+            let title = await getProductNameById(product.product_id);
+            order.products.push({
+                id: product.product_id,
+                size: product.size,
+                amount: product.amount,
+                title: title.title,
+            })
+        }
+
+        orders.push(order);
+    }
+    connection.release();
+    return {
+        code: 200,
+        orders: orders
+    };
+}
+
+module.exports.deleteOrder = async function deleteOrder(id){
+    const connection = await conn.getConnection();
+
+    try{
+        await connection.query('DELETE FROM orders WHERE order_id = ?', [id])
+        await connection.query('DELETE FROM order_items WHERE order_id = ?', [id])
+    } catch (e) {
+        connection.release();
+        return {
+            code: 501,
+            error: e.message
+        }
+    }
+
+    connection.release();
+
+    return {
+        code: 200,
+        deletedId: id
+    }
 
 }

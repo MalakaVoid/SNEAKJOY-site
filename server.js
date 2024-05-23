@@ -1,16 +1,21 @@
 const express = require('express');
 const path = require('path');
 const ejs = require('ejs');
+
 const pagesRouter = require('./routes/pages');
 const productRouter = require('./routes/product');
 const catalogueRouter = require('./routes/catalogue');
-const apiProductsRouter = require('./routes/apiProducts');
-const apiAuthRouter = require('./routes/auth');
-const apiReviewsRouter = require('./routes/reviews');
-const apiOrderRouter = require('./routes/order');
+const apiProductsRouter = require('./routes/api/products');
+const apiAuthRouter = require('./routes/api/auth');
+const apiReviewsRouter = require('./routes/api/reviews');
+const apiOrderRouter = require('./routes/api/order');
+const apiUsersRouter = require('./routes/api/users');
+const adminRouter = require('./routes/admin');
+
 const mysql = require('mysql2');
 const bodyParser = require('body-parser')
 const session = require('express-session')
+
 const redis = require('redis')
 const connectRedis = require('connect-redis');
 const cookieParser = require('cookie-parser');
@@ -55,6 +60,8 @@ app.use('/api/products', apiProductsRouter);
 app.use('/api/auth', apiAuthRouter);
 app.use('/api/reviews', apiReviewsRouter);
 app.use('/api/order', apiOrderRouter);
+app.use('/api/users', apiUsersRouter);
+app.use('/admin/', adminRouter);
 
 
 app.use(function(req, res, next){

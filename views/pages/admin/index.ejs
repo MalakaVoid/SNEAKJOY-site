@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/varibles.css">
+    <link rel="stylesheet" href="./css/admin.css">
+    <%- include('../../common/_favicon.ejs') %>
+    <title>Admin page</title>
+</head>
+<body>
+    
+    <%- include('../../common/_adminHeader.ejs') %>
+
+    <main>
+
+        <section class="products">
+            <h1 class="title">
+                ТОВАРЫ
+            </h1>
+
+            <div class="action">
+                <div class="action__item" id="addFormChange">
+                    ДОБАВИТЬ
+                </div>
+                <div class="action__item" id="editFormChange">
+                    РЕДАКТИРОВАТЬ
+                </div>
+                <div class="action__item" id="deleteFormChange">
+                    УДАЛИТЬ
+                </div>
+            </div>
+
+            <div class="add_block">
+                <form>
+                    
+                    <label class="input_container">
+                        <input type="text" name="title" placeholder="Название товара">
+                    </label>
+
+                    <label class="input_container">
+                        <input type="number" name="price" placeholder="Цена">
+                    </label>
+
+                    <label class="input_container">
+                        <textarea name="description_small" placeholder="Введите описание товара на карточке"></textarea>
+                    </label>
+
+                    <label class="input_container">
+                        <textarea name="description" placeholder="Введите описание товара"></textarea>
+                    </label>
+
+                    <label class="input_container">
+                        <input type="text" name="main_image" placeholder="Основная картинка">
+                    </label>
+
+                    <label class="input_container">
+                        <input type="text" name="sup_image" placeholder="Дополнительная картинка">
+                    </label>
+
+                    <label class="input_container input_container__select">
+                        Выберите размеры:
+                        <select name="sizes" multiple>
+                            <option value="37">37</option>
+                            <option value="38">38</option>
+                            <option value="39">39</option>
+                            <option value="40">40</option>
+                            <option value="41">41</option>
+                            <option value="42">42</option>
+                            <option value="43">43</option>
+                        </select>
+                    </label>
+
+                    <label class="input_container">
+                        <input type="checkbox" name="visibility"> Видимость
+                    </label>
+
+                    <label class="input_container">
+                        <input type="checkbox" name="is_popular"> Популярное
+                    </label>
+
+                    <button type="submit" class="button button_add">ДОБАВИТЬ</button>
+                </form>
+            </div>
+
+            <div class="edit_block">
+                <div class="cards">
+
+                    <div class="card">
+
+                        <h3 class="title">TITLE #1</h3>
+
+                        <label class="input_container">
+                            Название <input type="text" name="title" >
+                        </label>
+    
+                        <label class="input_container">
+                            Цена <input type="number" name="price" >
+                        </label>
+    
+                        <label class="input_container">
+                            Описание (мал.) <textarea name="description_small" ></textarea>
+                        </label>
+    
+                        <label class="input_container">
+                            Описание (бол.) <textarea name="description"></textarea>
+                        </label>
+    
+                        <label class="input_container">
+                            Осн. картинка <input type="text" name="main_image">
+                        </label>
+    
+                        <label class="input_container">
+                            Доп. картинка<input type="text" name="sup_image">
+                        </label>
+    
+                        <label class="input_container input_container__select">
+                            Выберите размеры:
+                            <select name="sizes" multiple>
+                                <option value="37">37</option>
+                                <option value="38">38</option>
+                                <option value="39">39</option>
+                                <option value="40">40</option>
+                                <option value="41">41</option>
+                                <option value="42">42</option>
+                                <option value="43">43</option>
+                            </select>
+                        </label>
+    
+                        <label class="input_container input_container_checkbox">
+                            <input type="checkbox" name="visibility"> Видимость
+                        </label>
+    
+                        <label class="input_container input_container_checkbox">
+                            <input type="checkbox" name="is_popular"> Популярное
+                        </label>
+    
+                        <button type="button" class="button-edit">Изменить</button>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="delete_block">
+                <div class="cards">
+                    <div class="card">
+                        <h3 class="title">TITLE #1</h3>
+                        <p>TITLE</p>
+                        <p class="card_price">1290 p</p>
+                        <button type="button" class="button_delete">Удалить</button>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+
+    <script src="/scripts/admin/formsChanger.js"></script>
+    <script src="/scripts/admin/products/addProduct.js"></script>
+    <script src="/scripts/admin/products/loadProducts.js"></script>
+    <script src="/scripts/admin/products/deleteProduct.js"></script>
+    <script src="/scripts/admin/products/editProducts.js"></script>
+    <script src="/scripts/createPopup.js"></script>
+
+
+</body>
+</html>

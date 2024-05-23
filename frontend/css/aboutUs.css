@@ -54,6 +54,11 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  gap: 10px;
 }
 .header_logo svg {
   width: 149px;

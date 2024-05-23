@@ -16,7 +16,9 @@ module.exports.getAllProducts = async function getAllProducts(){
             description: item.description,
             mainImage: item.main_image,
             supImage: item.sup_image,
-            sizes: item.sizes
+            sizes: item.sizes,
+            visibility: !!item.visibility,
+            is_popular: !!item.is_popular,
         }
     })
 
@@ -124,4 +126,129 @@ module.exports.getProductsById = async function getProductsById(productIds){
     })
 
     return products;
+}
+
+
+module.exports.addProduct = async function addProduct(productInfo){
+    const connection = await conn.getConnection();
+    let query = "INSERT INTO `products` (`product_id`, `title`, `price`, `description_small`, `description`, `main_image`, `sup_image`, `sizes`, `visibility`, `is_popular`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+
+    try{
+
+        [results] = await connection.query(query, [
+            productInfo.title,
+            productInfo.price,
+            productInfo.description_small,
+            productInfo.description,
+            productInfo.main_image,
+            productInfo.sup_image,
+            `[${productInfo.sizes.toString()}]`,
+            productInfo.visibility ? 1 : 0,
+            productInfo.is_popular ? 1 : 0
+        ]);
+
+        connection.release();
+
+    } catch(err){
+        return {
+            code: 501,
+            error: err.message
+        }
+    }
+
+    return {
+        code: 200,
+        productId: results.insertId,
+    }
+
+}
+
+module.exports.deleteProduct = async function deleteProduct(productId){
+    const connection = await conn.getConnection();
+    let findQuery = "SELECT * FROM products WHERE product_id = ?";
+    let deleteQuery = "DELETE FROM products WHERE product_id = ?";
+    let products;
+
+    try{
+
+        [products] = await connection.query(findQuery, [productId]);
+
+        await connection.query(deleteQuery, [productId]);
+
+        connection.release();
+
+    } catch(err){
+        return {
+            code: 501,
+            error: err.message
+        }
+    }
+
+    return {
+        code: 200,
+        product: {
+            id: products[0].product_id,
+            title: products[0].title,
+            price: products[0].price,
+            descriptionSmall: products[0].description_small,
+            description: products[0].description,
+            mainImage: products[0].main_image,
+            supImage: products[0].sup_image,
+            sizes: products[0].sizes,
+            visibility: !!products[0].visibility,
+            is_popular: !!products[0].is_popular,
+        }
+    }
+}
+
+module.exports.editProduct = async function editProduct(productInfo){
+    const connection = await conn.getConnection();
+    let findQuery = "SELECT * FROM products WHERE product_id = ?";
+    let editQuery = "UPDATE `products` SET `title` = ?, `price` = ?, `description_small` = ?, `description` = ?, `main_image` = ?, `sup_image` = ?, `sizes` = ?, `visibility` = ?, `is_popular` = ? WHERE `products`.`product_id` = ?;";
+    let products;
+
+    try{
+
+        [products] = await connection.query(findQuery, [productInfo.id]);
+
+        await connection.query(editQuery, [
+            productInfo.title,
+            productInfo.price,
+            productInfo.description_small,
+            productInfo.description,
+            productInfo.main_image,
+            productInfo.sup_image,
+            `[${productInfo.sizes.toString()}]`,
+            productInfo.visibility? 1 : 0,
+            productInfo.is_popular? 1 : 0,
+            productInfo.id,
+        ]);
+
+        connection.release();
+
+    } catch(err){
+        return {
+            code: 501,
+            error: err.message
+        }
+    }
+
+    return {
+        code: 200,
+        oldProduct: {
+            id: products[0].product_id,
+            title: products[0].title,
+            price: products[0].price,
+            descriptionSmall: products[0].description_small,
+            description: products[0].description,
+            mainImage: products[0].main_image,
+            supImage: products[0].sup_image,
+            sizes: products[0].sizes,
+            visibility: !!products[0].visibility,
+            is_popular: !!products[0].is_popular,
+        },
+        newProduct: productInfo
+    }
+
+
 }
