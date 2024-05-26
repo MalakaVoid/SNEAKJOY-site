@@ -16,7 +16,7 @@
                         <%= popularProduct[i].descriptionSmall %>
                     </p>
                     <div class="popular_card_price">
-                        <%= popularProduct[i].price.toLocaleString('ru-RU', { style: 'currency', currency: 'RUB', maximumFractionDigits: 0 }) %>
+                        <%= parseInt(popularProduct[i].price).toLocaleString('ru-RU', { style: 'currency', currency: 'RUB', maximumFractionDigits: 0 }) %>
                     </div>
                 </a>
                 <div class="popular_card_sizes">

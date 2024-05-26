@@ -8,6 +8,8 @@ const router = express.Router();
 router.get('/', async function(req, res){
     let responsePopular = await getPopularProducts();
 
+    console.log(responsePopular)
+
     res.status(200).render('pages/index', {
         settings:{
             title: 'Main page',

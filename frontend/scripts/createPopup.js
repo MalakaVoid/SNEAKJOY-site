@@ -1,8 +1,11 @@
 
-function createPopup(title, message){
+function createPopup(title, message, big=false){
 
     let popup = document.createElement('div');
     popup.classList.add('popup');
+    if (big){
+        popup.classList.add('popup_big');
+    }
 
     popup.innerHTML = `
     <div class="popup__card">

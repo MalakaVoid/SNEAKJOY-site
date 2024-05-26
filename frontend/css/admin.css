@@ -148,6 +148,10 @@
   padding-bottom: 60px;
   position: relative;
 }
+.popup.popup_big .popup__card {
+  width: 100%;
+  max-width: 600px;
+}
 .popup__title {
   font-size: 1.5rem;
   text-align: center;
@@ -159,6 +163,9 @@
   margin-top: 15px;
   width: 100%;
   text-align: center;
+}
+.popup__text span {
+  font-weight: 600;
 }
 .popup__exit {
   width: 40px;

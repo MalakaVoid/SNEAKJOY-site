@@ -46,15 +46,15 @@ router.put('/', async function(req, res) {
 
     let { id, email, name, password, is_admin } = req.body;
 
-    let isEmailExist = await checkUserEmailExistance(email);
+    // let isEmailExist = await checkUserEmailExistance(email);
 
-    if (isEmailExist){
-        res.status(200).json({
-            code: 404,
-            error: 'Пользователь с таким email уже существует'
-        });
-        return;
-    }
+    // if (isEmailExist){
+    //     res.status(200).json({
+    //         code: 404,
+    //         error: 'Пользователь с таким email уже существует'
+    //     });
+    //     return;
+    // }
     
     let response = await editUser(id, email, name, password, is_admin);
 

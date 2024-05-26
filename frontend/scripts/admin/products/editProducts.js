@@ -172,20 +172,20 @@ async function editProduct(event) {
     let popupTitle = result.code == 200? 'Успешно': 'Ошибка';
     let popupMessage = result.code == 200? `
         Товар с id = ${result.newProduct.id} успешно изменен!<br>
-        Название: ${result.oldProduct.title} -> ${result.newProduct.title}<br>
-        Цена: ${result.oldProduct.price} -> ${result.newProduct.price}<br>
-        Описание(мал.): ${result.oldProduct.descriptionSmall} -> ${result.newProduct.description_small}<br>
-        Описание(бол.):${result.oldProduct.description} -> ${result.newProduct.description}<br>
-        Осн. картинка: ${result.oldProduct.mainImage} -> ${result.newProduct.main_image}<br>
-        Доп. картинка: ${result.oldProduct.supImage} -> ${result.newProduct.sup_image}<br>
-        Размеры: ${result.oldProduct.sizes} -> ${result.newProduct.sizes}<br>
-        Видимость: ${result.oldProduct.visibility} -> ${result.newProduct.visibility}<br>
-        Популярное: ${result.oldProduct.is_popular} -> ${result.newProduct.is_popular}
+        <span>Название:</span> ${result.oldProduct.title} <span>-></span> ${result.newProduct.title}<br>
+        <span>Цена:</span> ${result.oldProduct.price} <span>-></span> ${result.newProduct.price}<br>
+        <span>Описание(мал.):</span> ${result.oldProduct.descriptionSmall} <span>-></span> ${result.newProduct.description_small}<br>
+        <span>Описание(бол.):</span>${result.oldProduct.description} <span>-></span> ${result.newProduct.description}<br>
+        <span>Осн. картинка:</span> ${result.oldProduct.mainImage} <span>-></span> ${result.newProduct.main_image}<br>
+        <span>Доп. картинка:</span> ${result.oldProduct.supImage} <span>-></span> ${result.newProduct.sup_image}<br>
+        <span>Размеры:</span> ${result.oldProduct.sizes} <span>-></span> ${result.newProduct.sizes}<br>
+        <span>Видимость:</span> ${result.oldProduct.visibility} <span>-></span> ${result.newProduct.visibility}<br>
+        <span>Популярное:</span> ${result.oldProduct.is_popular} <span>-></span> ${result.newProduct.is_popular}
 
         `
         : result.error;
 
-    createPopup(popupTitle, popupMessage)
+    createPopup(popupTitle, popupMessage, true)
 
     result.code == 200 && disableCard(parent)
 
