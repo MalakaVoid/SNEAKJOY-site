@@ -23,7 +23,8 @@ window.addEventListener('load', async function(e) {
 async function getProducts() {
     let response = await fetch('http://localhost:3000/api/products');
     let products = await response.json();
-    return products;
+    let result = products.filter(product => product.visibility)
+    return result;
 }
 
 function showAllProducts(products) {

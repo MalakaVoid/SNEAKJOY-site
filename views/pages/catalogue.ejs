@@ -30,27 +30,29 @@
             </div>
             <div class="catalogue_products">
                 <% products.forEach(product => { %>
-                    <div class="catalogue_products_card">
-                        <a href="/product/<%= product.id %>">
-                            <div class="catalogue_products_card_image">
-                                <img src="<%= product.mainImage %>" />
-                                <img src="<%= product.supImage %>" />
-                            </div>
-                            <div class="catalogue_products_card_title"><%= product.title %></div>
-                            <div class="catalogue_products_card_desc"><%= product.descriptionSmall %></div>
-                            <div class="catalogue_products_card_price"><%= product.price.toLocaleString('ru-RU', { style: 'currency', currency: 'RUB', maximumFractionDigits: 0 }) %></div>
-                        </a>
-                        <div class="catalogue_products_card_sizes">
-                            <% for( let i = 0; i < product.sizes.length; i++ ) { %>
-                                <span onClick="addProductToCart(<%= product.id %>, <%= product.sizes[i] %>)">
-                                    <%= product.sizes[i] %>
-                                </span>
-                                <% if (i !== product.sizes.length - 1) { %>
-                                    &nbsp;|&nbsp;
+                    <% if (product.visibility) { %>
+                        <div class="catalogue_products_card">
+                            <a href="/product/<%= product.id %>">
+                                <div class="catalogue_products_card_image">
+                                    <img src="<%= product.mainImage %>" />
+                                    <img src="<%= product.supImage %>" />
+                                </div>
+                                <div class="catalogue_products_card_title"><%= product.title %></div>
+                                <div class="catalogue_products_card_desc"><%= product.descriptionSmall %></div>
+                                <div class="catalogue_products_card_price"><%= product.price.toLocaleString('ru-RU', { style: 'currency', currency: 'RUB', maximumFractionDigits: 0 }) %></div>
+                            </a>
+                            <div class="catalogue_products_card_sizes">
+                                <% for( let i = 0; i < product.sizes.length; i++ ) { %>
+                                    <span onClick="addProductToCart(<%= product.id %>, <%= product.sizes[i] %>)">
+                                        <%= product.sizes[i] %>
+                                    </span>
+                                    <% if (i !== product.sizes.length - 1) { %>
+                                        &nbsp;|&nbsp;
+                                    <% } %>
                                 <% } %>
-                            <% } %>
+                            </div>
                         </div>
-                    </div>
+                    <% } %>
                 <% }) %>
             </div>
         </section>
